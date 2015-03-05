@@ -47,12 +47,12 @@ extern "C" {
 #define LCD_PORT  PORTB
 #define LCD_ODC   ODCB
 #define LCD_DATA_PINS (1<<9|1<<10|1<<11|1<<12)
-#define LCD_TMR TMR3
-#define LCD_PR  PR3
-#define LCD_CON T3CON
-#define LCD_IE   IEC0bits.T3IE
-#define LCD_IF   IFS0bits.T3IF
-#define LCD_IPC  IPC2bits.T3IP
+#define LCD_TMR TMR4
+#define LCD_PR  PR4
+#define LCD_CON T4CON
+#define LCD_IE   IEC1bits.T4IE
+#define LCD_IF   IFS1bits.T4IF
+#define LCD_IPC  IPC6bits.T4IP
 
 
 
@@ -84,15 +84,15 @@ extern "C" {
 #define TONE1_IF  IFS0bits.T2IF
 #define TONE1_IE  IEC0bits.T2IE
 #define TONE1_IPC IPC1bits.T2IP
-#define TONE2_TMR  TMR4
+#define TONE2_TMR  TMR3
 #define TONE2_OUT  (1<<4)  // RB4
-#define TONE2_PER  PR4   // period register
-#define TONE2_DC   OC4RS // duty cycle
-#define TONE2_IDC   OC4R    // initial duty cycle
-#define TONE2_OCCON OC4CON  // output compare control
-#define TONE2_TMRCON  T4CON
+#define TONE2_PER  PR3   // period register
+#define TONE2_DC   OC3RS // duty cycle
+#define TONE2_IDC   OC3R    // initial duty cycle
+#define TONE2_OCCON OC3CON  // output compare control
+#define TONE2_TMRCON  T3CON
 #define TONE2_PIN_PPS  RPOR2bits.RP4R
-#define TONE2_OUT_FN  (21)
+#define TONE2_OUT_FN  (20)
 
 #if defined WAV_SUPPORT
 // PWM WAV player

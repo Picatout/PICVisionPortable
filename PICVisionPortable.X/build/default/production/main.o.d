@@ -8,19 +8,18 @@ text.h  \
 tone.h  \
  chip8.h  \
 keypad.h  \
-hardware/HardwareProfile.h  \
 games/game_info.h  \
 filesys.h  \
- fat/fat.h  \
-fat/sd_raw.h  \
-fat/sd_raw_config.h  \
- fat/../Hardware/HardwareProfile.h  \
-fat/fat_config.h  \
-fat/partition.h  \
- fat/partition_config.h  \
-fat/sd_raw.h  \
-games/blinky/blinky.h  \
- games/sokoban/sokoban.h  \
+FAT/fat.h  \
+FAT/sd_raw.h  \
+ FAT/sd_raw_config.h  \
+FAT/../Hardware/HardwareProfile.h  \
+FAT/fat_config.h  \
+ FAT/partition.h  \
+FAT/partition_config.h  \
+FAT/sd_raw.h  \
+ games/BLINKY/blinky.h  \
+games/SOKOBAN/sokoban.h  \
 c8test.h  \
-games/lem/lem.h  \
-splash.h 
+games/LEM/lem.h  \
+ splash.h 

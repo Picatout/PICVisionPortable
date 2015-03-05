@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "hardware/HardwareProfile.h"
+#include "Hardware/HardwareProfile.h"
 #include "Hardware/LCDout.h"
 #include "display.h"
 #include "text.h"

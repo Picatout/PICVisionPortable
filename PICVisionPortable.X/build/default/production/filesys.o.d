@@ -1,19 +1,18 @@
 build/default/production/filesys.o:  \
 filesys.c  \
 filesys.h  \
- hardware/HardwareProfile.h  \
-fat/fat.h  \
-fat/sd_raw.h  \
-fat/sd_raw_config.h  \
- fat/../Hardware/HardwareProfile.h  \
-fat/fat_config.h  \
-fat/partition.h  \
- fat/partition_config.h  \
-fat/sd_raw.h  \
+ Hardware/HardwareProfile.h  \
+FAT/fat.h  \
+FAT/sd_raw.h  \
+FAT/sd_raw_config.h  \
+ FAT/../Hardware/HardwareProfile.h  \
+FAT/fat_config.h  \
+FAT/partition.h  \
+ FAT/partition_config.h  \
+FAT/sd_raw.h  \
 keypad.h  \
 text.h  \
-hardware/LCDout.h  \
- hardware/HardwareProfile.h  \
-display.h  \
 Hardware/LCDout.h  \
+ Hardware/HardwareProfile.h  \
+display.h  \
 chip8.h 

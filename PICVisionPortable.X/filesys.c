@@ -15,7 +15,7 @@
 #include "keypad.h"
 #include "text.h"
 #include "sram.h"
-#include "hardware/LCDout.h"
+#include "Hardware/LCDout.h"
 #include "display.h"
 #include "chip8.h"
 
