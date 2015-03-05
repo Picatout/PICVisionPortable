@@ -1,0 +1,85 @@
+#200	#2212	CALL #212
+#202	#2270	CALL #270
+#204	#221C	CALL #21C
+#206	#2270	CALL #270
+#208	#2226	CALL #226
+#20A	#2270	CALL #270
+#20C	#2230	CALL #230
+#20E	#2270	CALL #270
+;---  JP target ---
+#210	#1210	JP #210
+;--- JP or CALL target ---
+#212	#6002	LD V0, 2
+#214	#6115	LD V1, 21
+#216	#8014	ADD V0, V1
+#218	#223A	CALL #23A
+#21A	#00EE	RET
+;--- JP or CALL target ---
+#21C	#6017	LD V0, 23
+#21E	#612D	LD V1, 45
+#220	#8015	SUB V0, V1
+#222	#223A	CALL #23A
+#224	#00EE	RET
+;--- JP or CALL target ---
+#226	#6015	LD V0, 21
+#228	#610A	LD V1, 10
+#22A	#8015	SUB V0, V1
+#22C	#223A	CALL #23A
+#22E	#00EE	RET
+;--- JP or CALL target ---
+#230	#60FA	LD V0, 250
+#232	#2266	CALL #266
+#234	#00FC	SCL
+#236	#00FC	SCL
+#238	#00EE	RET
+;--- JP or CALL target ---
+#23A	#00E0	CLS
+#23C	#8EF0	LD VE, VF
+#23E	#6400	LD V4, 0
+#240	#6500	LD V5, 0
+#242	#224C	CALL #24C
+#244	#7404	ADD V4, 4
+#246	#80E0	LD V0, VE
+#248	#224C	CALL #24C
+#24A	#00EE	RET
+;--- JP or CALL target ---
+#24C	#A282	LD I, #282
+#24E	#F033	LD B, V0
+#250	#6300	LD V3, 0
+;---  JP target ---
+#252	#A282	LD I, #282
+#254	#F31E	ADD I, V3
+#256	#F065	LD V0, [I]
+#258	#F029	LD F, V0
+#25A	#D455	DRW V4, V5, 5
+#25C	#7404	ADD V4, 4
+#25E	#7301	ADD V3, 1
+#260	#3303	SE V3, 3
+#262	#1252	JP #252
+#264	#00EE	RET
+;--- JP or CALL target ---
+#266	#F015	LD DT, V0
+;---  JP target ---
+#268	#F007	LD V0, DT
+#26A	#3000	SE V0, 0
+#26C	#1268	JP #268
+#26E	#00EE	RET
+;--- JP or CALL target ---
+#270	#6002	LD V0, 2
+#272	#E09E	SKP V0
+#274	#1270	JP #270
+#276	#6002	LD V0, 2
+#278	#2266	CALL #266
+#27A	#6002	LD V0, 2
+;---  JP target ---
+#27C	#E0A1	SKNP V0
+#27E	#127C	JP #27C
+#280	#00EE	RET
+;-------------------------
+;-  LD I, NNN addresses  -
+;-------------------------
+#282	DW	#FF00, 
+;-------------------------
+;-      NOT DECODED      -
+;-------------------------
+

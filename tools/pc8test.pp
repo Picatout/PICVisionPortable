@@ -1,0 +1,130 @@
+20		LOW 
+21		HIGH 
+22		CLS 
+23		CALL TEST1 
+24		CALL WAIT_NEXT 
+25		CALL TEST2 
+26		CALL WAIT_NEXT 
+27		CALL TEST3 
+28		CALL WAIT_NEXT 
+33	IDLE: 
+34		JP IDLE 
+36	TEST1: 
+37		LD I , MSG1 
+38		LD V4        , 0 
+39		LD V5        , 0 
+40		PRT V4        , V5        
+41		LD V0     , 2 
+42		LD V1 , 21 
+43		ADD V0     , V1 
+44		CALL DISPLAY_RESULT 
+45		LD V0     , 128 
+46		LD V1 , V0     
+47		ADD V0     , V1 
+48		CALL DISPLAY_RESULT 
+49		LD V0     , 128 
+50		LD V1 , 28 
+51		SUB V0     , V1 
+52		CALL DISPLAY_RESULT 
+53		LD V0     , 10 
+54		LD V1 , 15 
+55		SUB V0     , V1 
+56		CALL DISPLAY_RESULT 
+57		LD V0     , 45 
+58		ADD V0     , 10 
+59		CALL DISPLAY_RESULT 
+60		LD V0     , 50 
+61		LD V1 , 40 
+62		SUBN V0     , V1 
+63		CALL DISPLAY_RESULT 
+64		RET 
+66	TEST2: 
+67		CLS 
+68		LD I , MSG2 
+69		LD V4        , 0 
+70		LD V5        , 0 
+71		PRT V4        , V5        
+72		LD V0     , #A5 
+73		LD V1 , #5A 
+74		OR V0     , V1 
+75		CALL DISPLAY_RESULT 
+76		LD V0     , 255 
+77		LD V1 , #AA 
+78		XOR V0     , V1 
+79		CALL DISPLAY_RESULT 
+80		LD V0     , #55 
+81		LD V1 , #50 
+82		AND V0     , V1 
+83		CALL DISPLAY_RESULT 
+84		LD V0     , #80 
+85		SHR V0     
+86		CALL DISPLAY_RESULT 
+87		LD V0     , #C0 
+88		SHL V0     
+89		CALL DISPLAY_RESULT 
+90		RET 
+92	TEST3: 
+93		CLS 
+94		LD I , MSG3 
+95		LD V4        , 0 
+96		LD V5        , 0 
+97		PRT V4        , V5        
+98		SCR 
+99		SCR 
+100		LD V0     , 30 
+101		CALL DELAY 
+102		SCL 
+103		SCL 
+104		SCD 15 
+105		RET 
+108	DISPLAY_RESULT: 
+109		LD VE , VF    
+110		SCD 6 
+111		LD V4        , 0 
+112		LD V5        , 0 
+113		CALL DISPLAY_WREG 
+114		ADD V4        , 4 
+115		LD V0     , VE 
+116		CALL DISPLAY_WREG 
+117		RET 
+120	DISPLAY_WREG: 
+121		LD I , BCD 
+122		LD B , V0     
+123		LD V3 , 0 
+124	DISP_LOOP: 
+125		LD I , BCD 
+126		ADD I , V3 
+127		LD V0     , [ I ] 
+128		LD F , V0     
+129		DRW V4        , V5        , 5 
+130		ADD V4        , 4 
+131		ADD V3 , 1 
+132		SE V3 , 3 
+133		JP DISP_LOOP 
+134		RET 
+137	DELAY: 
+138		LD DT , V0     
+139	DLY_LOOP: 
+140		LD V0     , DT 
+141		SE V0     , 0 
+142		JP DLY_LOOP 
+143		RET 
+146	WAIT_NEXT: 
+147		LD V0     , 2 
+148		SKP V0     
+149		JP WAIT_NEXT 
+150		LD V0     , 2 
+151		CALL DELAY 
+152		LD V0     , 2 
+153	WAIT_NEXT1: 
+154		SKNP V0     
+155		JP WAIT_NEXT1 
+156		RET 
+163	BCD: 
+164		DB 00 , 00 , 00 
+165	MSG1: 
+166		ASCII "test op. arith."
+167	MSG2: 
+168		ASCII "test op. logique"
+169	MSG3: 
+170		ASCII "test scrolling"

@@ -1,0 +1,198 @@
+;--------------------------------------------------
+; C8test
+; test VM SCHIP8  
+;---------------------------------------------------
+;;;;;;;;;;;;;
+; variables ;
+;;;;;;;;;;;;;
+defn carry VF   ; utilisÃ© comme indicateur boolÃ©en par plusieurs codes opérationnels.
+defn wreg V0    ; résultat des opération arithmétiques et logique
+defn x V4       ; coordonnée X DRW 
+defn y V5       ; coordonnée Y DRW
+;;;;;;;;;;;;;;
+; constantes ;
+;;;;;;;;;;;;;;
+EQU NEXT 2
+
+;;;;;;;;;;;;;;
+;  code      ;
+;;;;;;;;;;;;;;
+	low
+	high
+	cls
+	call test1  ; arithmétique
+	call wait_next
+	call test2  ; logique + shift
+	call wait_next
+	call test3  ; scroll left,right,down
+	call wait_next
+	call test4  ; son
+;	call wait_next
+;	call test6
+;	call wait_next
+idle: 
+    jp idle
+
+test1: ; opérateurs arithmétiques
+	ld I, msg1
+	ld x, 0
+	ld y, 0
+	prt x,y
+	ld wreg, 2
+	ld v1, 21
+	add wreg, v1  ; add vx,vy
+	call display_result
+	ld wreg, 128
+	ld V1, wreg
+	add wreg, v1  ; add vx,vy avec débordement
+	call display_result
+	ld wreg, 128
+	ld v1, 28
+	sub wreg, V1
+	call display_result
+	ld wreg, 10
+	ld v1, 15
+	sub wreg, v1
+	call display_result
+	ld wreg, 45
+	add wreg, 10
+	call display_result
+	ld wreg, 50
+	ld v1,  40
+	subn wreg, v1
+	call display_result
+	ret
+	
+test2: ; logical operator
+	cls
+	ld I, msg2
+	ld x, 0
+	ld y, 0
+	prt x,y
+	ld wreg, #a5
+	ld v1, #5a
+	or wreg, v1
+	call display_result
+	ld wreg, 255
+	ld v1, #aa
+	xor wreg, v1
+	call display_result
+	ld wreg, #55
+	ld v1, #50
+	and wreg, v1
+	call display_result
+	ld wreg, #80
+	shr wreg
+	call display_result
+	ld wreg, #c0
+	shl wreg
+	call display_result
+	ret
+
+test3: ; scroll right and left	
+	cls
+	ld I, msg3
+	ld x, 0
+	ld y, 0
+	prt x,y
+	scr
+	scr
+	ld wreg, 30
+	call delay
+	scl
+	scl
+	scd  15
+	ret
+
+test4: ; sons
+	ld v2, 0
+	ld v1, 30
+t4_l1:
+	ld wreg, v2
+	tone wreg, v1
+	pixi wreg,v1
+	ld wreg, v1
+	call delay
+	add v2,1
+	se v2,16
+	jp t4_l1
+	ld v2,0
+t4_l2:
+	ld wreg, v2
+	tone wreg, v1, wait
+	pixi wreg, v1
+	add v2,1
+	se v2,16
+	jp t4_l2
+	ld st, v1
+	ld wreg, v1
+	call delay
+t4_l3:
+	ld wreg, k
+	tone wreg, v1, wait
+	jp t4_l3
+	ret
+
+display_result:
+	ld VE, carry
+	scd 6
+	ld  x, 0
+	ld  y, 0
+	call display_wreg
+	add x, 4
+	ld wreg, VE
+	call display_wreg
+	ret
+	
+; display V0  	
+display_wreg:
+	ld I, BCD
+	ld B, wreg
+	ld V3, 0
+disp_loop:
+	ld I, BCD
+	add I, V3
+	ld wreg, [I]
+	ld F, wreg
+	drw x,y, 5
+	add x, 4
+	add V3, 1
+	se V3, 3
+	jp disp_loop
+	ret
+
+;   delay  utlise V0
+delay:
+	ld DT, wreg
+dly_loop:
+	ld wreg, DT
+	se wreg, 0
+	jp dly_loop
+	ret
+
+; wait for select key
+wait_next:
+	ld wreg, NEXT
+	skp wreg
+	jp wait_next
+	ld wreg, 2
+	call delay
+	ld wreg, NEXT
+wait_next1:
+	sknp wreg
+	jp wait_next1
+	ret
+	
+
+;;;;;;;;;;;;;;
+;  data      ;
+;;;;;;;;;;;;;;
+
+BCD: 
+db  00,00,00
+msg1: 
+ascii "test op. arith."
+msg2: 
+ascii "test op. logique"
+msg3: 
+ascii "test scrolling"

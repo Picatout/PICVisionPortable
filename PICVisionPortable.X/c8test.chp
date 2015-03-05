@@ -1,0 +1,110 @@
+;--------------------------------------------------
+; C8test
+; test VM SCHIP8  
+;---------------------------------------------------
+;;;;;;;;;;;;;
+; variables ;
+;;;;;;;;;;;;;
+defn carry VF   ; utilisÃ© comme indicateur boolÃ©en par plusieurs codes opérationnels.
+defn wreg V0    ; résultat des opération arithmétiques et logique
+defn x V4       ; coordonnée X DRW 
+defn y V5       ; coordonnée Y DRW
+;;;;;;;;;;;;;;
+; constantes ;
+;;;;;;;;;;;;;;
+EQU NEXT 2
+
+;;;;;;;;;;;;;;
+;  code      ;
+;;;;;;;;;;;;;;
+	call test1
+	call wait_next
+	call test2
+	call wait_next
+	call test3
+	call test4
+idle: 
+    jp idle
+
+test1: ; add  VX,VY
+	ld wreg, 2
+	ld v1, 21
+	add wreg, v1
+	call display_result
+	ret
+
+test2: ; sub VX,VY   VX<VY
+	ld wreg, 23
+	ld V1, 45
+	sub wreg, V1
+	call display_result
+	ret
+	
+test3: ; sub VX,VY  VX>VY
+	ld wreg, 21
+	ld V1, 10
+	sub wreg,V1 
+	call display_result
+	ret
+	
+test4:
+	noise 4
+	ret
+	
+display_result:
+	cls
+	ld VE, carry
+	ld  x, 0
+	ld  y, 0
+	call display_wreg
+	add x, 4
+	ld wreg, VE
+	call display_wreg
+	ret
+	
+; display V0  	
+display_wreg:
+	ld I, BCD
+	ld B, wreg
+	ld V3, 0
+disp_loop:
+	ld I, BCD
+	add I, V3
+	ld wreg, [I]
+	ld F, wreg
+	drw x,y, 5
+	add x, 4
+	add V3, 1
+	se V3, 3
+	jp disp_loop
+	ret
+
+;   delay  utlise V0
+delay:
+	ld DT, wreg
+dly_loop:
+	ld wreg, DT
+	se wreg, 0
+	jp dly_loop
+	ret
+
+; wait for select key
+wait_next:
+	ld wreg, NEXT
+	skp wreg
+	jp wait_next
+	ld wreg, 2
+	call delay
+	ld wreg, NEXT
+wait_next1:
+	sknp wreg
+	jp wait_next1
+	ret
+	
+
+;;;;;;;;;;;;;;
+;  data      ;
+;;;;;;;;;;;;;;
+
+BCD: 
+   db  0,0,0
