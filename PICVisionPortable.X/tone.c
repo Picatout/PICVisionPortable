@@ -59,10 +59,11 @@ inline void key_tone(uint8_t key, unsigned length,unsigned channel, bool wait_en
 }
 
 
-void noise(unsigned length){
+void noise(unsigned length,bool wait_end){
     tone(rand()|1024,length,1);
     TONE1_IF=0;
     TONE1_IE=1;
+    if (wait_end) wait_tone_end(1);
 }//f()
 
 void __attribute__((interrupt,no_auto_psv)) _T2Interrupt(void){

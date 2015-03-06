@@ -27,7 +27,7 @@
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
 
-#include "hardware/HardwareProfile.h"
+#include "Hardware/HardwareProfile.h"
 
 #define UP          (0)
 #define DOWN        (1)

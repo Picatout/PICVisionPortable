@@ -73,7 +73,7 @@ volatile uint16_t frame_counter;
 volatile static  uint8_t x=0,y=0;
 volatile static  uint8_t state=0;
 
-void __attribute__((interrupt,no_auto_psv)) _T3Interrupt(void){
+void __attribute__((interrupt,no_auto_psv)) _T4Interrupt(void){
     switch (state){
     case 0:
         LCD_send_cmd(XCMD_GAC|y);

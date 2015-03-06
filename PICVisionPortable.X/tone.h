@@ -68,6 +68,7 @@ void key_tone(uint8_t key, unsigned length,unsigned channel, bool wait_end);
 
 // generate white noise
 // length: duration in 16*length milliseconds.
-void noise(unsigned length);
+// wait_end: pause while waiting end.
+void noise(unsigned length, bool wait_end);
 
 #endif /* TONE_H_ */

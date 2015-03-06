@@ -54,10 +54,10 @@
 #endif
 
 //****** jeux intégrés ***********
-#include "games/blinky/blinky.h"
-#include "games/sokoban/sokoban.h"
+#include "games/BLINKY/blinky.h"
+#include "games/SOKOBAN/sokoban.h"
 #include "c8test.h"
-#include "games/lem/lem.h"
+#include "games/LEM/lem.h"
 
 #define GAMES_COUNT (4)
 
@@ -277,9 +277,11 @@ int main() {
     uint32_t size;
 
     HardwareInit();
-    tone(500,250,1);
     LCDout_init();
     splash_screen();
+    tone(523,500,1);
+    tone(587,500,2);
+    pause(499);
     srand(TMR1);
     while(1){
         select_font(FONT_ASCII);

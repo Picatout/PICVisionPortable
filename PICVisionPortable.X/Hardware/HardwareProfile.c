@@ -28,7 +28,7 @@ void HardwareInit(){
     TONE1_TMRCON = (1<<13);
     TONE1_IPC=3;
     TONE2_PIN_PPS=TONE2_OUT_FN;
-    TONE2_OCCON=(1<<13);
+    TONE2_OCCON=(1<<13)|(1<<3);
     TONE2_TMRCON=(1<<13);
 
 // LCD port configuraton

@@ -5,7 +5,6 @@ Hardware/HardwareProfile.h  \
 text.h  \
 tone.h  \
 keypad.h  \
-hardware/HardwareProfile.h  \
 display.h  \
- Hardware/LCDout.h  \
-Hardware/HardwareProfile.h 
+Hardware/LCDout.h  \
+ Hardware/HardwareProfile.h 

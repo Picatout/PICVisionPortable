@@ -23,7 +23,7 @@
  *  Author: Jacques Deschênes
  */ 
 
-#include "hardware/HardwareProfile.h"
+#include "Hardware/HardwareProfile.h"
 #include "Hardware/LCDout.h"
 #include "keypad.h"
 #include "display.h"

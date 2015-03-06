@@ -9,12 +9,12 @@
 #ifndef FILESYS_H_
 #define FILESYS_H_
 
-#include "hardware/HardwareProfile.h"
+#include "Hardware/HardwareProfile.h"
 
 // sdcard and FAT library
-#include "fat/fat.h"
-#include "fat/partition.h"
-#include "fat/sd_raw.h"
+#include "FAT/fat.h"
+#include "FAT/partition.h"
+#include "FAT/sd_raw.h"
 
 
 
