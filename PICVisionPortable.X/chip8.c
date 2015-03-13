@@ -281,8 +281,8 @@ uint8_t schip(uint8_t flags){
         case 0x906: // 9XY6 TONE 2, VX, VY  joue une note de la gamme tempérée sur canal 2.
             key_tone(vms.var[x],vms.var[y]<<3,2,false);
             break;
-        case 0x907: // 9XY7 TONE argument of tone pointed by I, M[I]=FREQ, M[I+2]=length, VY=channel
-            tone((unsigned)chip_prog[vms.ix],(unsigned)chip_prog[vms.ix+2]<<3,(unsigned)vms.var[y]);
+        case 0x907: // 9XY7 TONE argument of tone pointed by I, M[I]=FREQ, M[I+2]=length, M[I+3]=channel
+            tone((uint16_t)chip_prog[vms.ix],chip_prog[vms.ix+2]<<3,chip_prog[vms.ix+3]);
             break;
         case 0xa00: // ANNN     I := NNN
             vms.ix=caddr(vms.b1,vms.b2);  // adressse de 12 bits

@@ -100,11 +100,11 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x1dc           0x2ca  (714)
 .const                       0x3dc              0x2484          0x36c6  (14022)
-.text                       0x2860              0x23d0          0x35b8  (13752)
-.dinit                      0x4c30                0x4c            0x72  (114)
-.init.delay32               0x4c7c                0x1c            0x2a  (42)
+.text                       0x2860              0x23cc          0x35b2  (13746)
+.dinit                      0x4c2c                0x4c            0x72  (114)
+.init.delay32               0x4c78                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x6fe4  (28644) 43%
+                     Total program memory used (bytes):         0x6fde  (28638) 43%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -213,87 +213,87 @@ External Symbols in Program Memory (by address):
                   0x002fba                  _fat_get_fs_free
                   0x003028                  _print_vms
                   0x00309c                  _schip
-                  0x00374a                  _sd_raw_available
-                  0x003754                  _sd_raw_init
-                  0x003830                  _sd_raw_read
-                  0x0038b8                  _sd_raw_read_interval
-                  0x0039fe                  _sd_raw_get_info
-                  0x003bc4                  _plot
-                  0x003c38                  _put_sprite
-                  0x003d30                  _put_big_sprite
-                  0x003ea0                  _cls
-                  0x003eb2                  _scroll_down
-                  0x003ed6                  _scroll_up
-                  0x003f00                  _scroll_right
-                  0x003f5e                  _chip_scroll_right
-                  0x003f94                  _scroll_left
-                  0x003ff2                  _chip_scroll_left
-                  0x004028                  _screen_save
-                  0x004034                  _screen_restore
-                  0x004042                  _display_page
-                  0x00409c                  _display_cursor
-                  0x0040aa                  _select_file
-                  0x0041a2                  _sdc_files
-                  0x004206                  _games_on_sdcard
-                  0x004248                  _games_in_flash
-                  0x0042a6                  _splash_screen
-                  0x0042e2                  _main
-                  0x004326                  _select_font
-                  0x00432a                  _new_line
-                  0x004396                  _put_char
-                  0x004434                  _set_cursor
-                  0x00443e                  _get_cursor
-                  0x00444c                  _print
-                  0x004462                  _print_int
-                  0x0044a0                  _print_hex
-                  0x004508                  _cursor_left
-                  0x004554                  _text_scroller
-                  0x0046b2                  _LCD_reset
-                  0x0046ca                  _LCDout_init
-                  0x0046f8                  __T4Interrupt
-                  0x00479a                  _bad_sdcard
-                  0x0047ae                  _fs_mount
-                  0x0047fc                  _fs_umount
-                  0x00480e                  _fs_open_dir
-                  0x004838                  _fs_close_dir
-                  0x00483e                  _fs_open_file
-                  0x004882                  _fs_close_file
-                  0x004888                  _fs_file_reset
-                  0x004892                  _fs_read_file
-                  0x00489c                  _fs_load_file
-                  0x0048f0                  _fs_read_dir
-                  0x0048f8                  _HardwareInit
-                  0x00498c                  _pause
-                  0x0049a0                  __T1Interrupt
-                  0x0049de                  _tone
-                  0x004a54                  _key_tone
-                  0x004a7a                  _noise
-                  0x004a9c                  __T2Interrupt
-                  0x004abe                  _partition_open
-                  0x004b40                  _partition_close
-                  0x004b4e                  _keypad_read
-                  0x004b80                  _wait_key
-                  0x004b88                  _key_down
-                  0x004b9e                  _prompt_key
-                  0x004bc8                  _keypad_break
-                  0x004bd2                  _read16
-                  0x004bde                  _read32
-                  0x004c0c                  _write16
-                  0x004c14                  _write32
-                  0x004c7c                  ___delay32
+                  0x003746                  _sd_raw_available
+                  0x003750                  _sd_raw_init
+                  0x00382c                  _sd_raw_read
+                  0x0038b4                  _sd_raw_read_interval
+                  0x0039fa                  _sd_raw_get_info
+                  0x003bc0                  _plot
+                  0x003c34                  _put_sprite
+                  0x003d2c                  _put_big_sprite
+                  0x003e9c                  _cls
+                  0x003eae                  _scroll_down
+                  0x003ed2                  _scroll_up
+                  0x003efc                  _scroll_right
+                  0x003f5a                  _chip_scroll_right
+                  0x003f90                  _scroll_left
+                  0x003fee                  _chip_scroll_left
+                  0x004024                  _screen_save
+                  0x004030                  _screen_restore
+                  0x00403e                  _display_page
+                  0x004098                  _display_cursor
+                  0x0040a6                  _select_file
+                  0x00419e                  _sdc_files
+                  0x004202                  _games_on_sdcard
+                  0x004244                  _games_in_flash
+                  0x0042a2                  _splash_screen
+                  0x0042de                  _main
+                  0x004322                  _select_font
+                  0x004326                  _new_line
+                  0x004392                  _put_char
+                  0x004430                  _set_cursor
+                  0x00443a                  _get_cursor
+                  0x004448                  _print
+                  0x00445e                  _print_int
+                  0x00449c                  _print_hex
+                  0x004504                  _cursor_left
+                  0x004550                  _text_scroller
+                  0x0046ae                  _LCD_reset
+                  0x0046c6                  _LCDout_init
+                  0x0046f4                  __T4Interrupt
+                  0x004796                  _bad_sdcard
+                  0x0047aa                  _fs_mount
+                  0x0047f8                  _fs_umount
+                  0x00480a                  _fs_open_dir
+                  0x004834                  _fs_close_dir
+                  0x00483a                  _fs_open_file
+                  0x00487e                  _fs_close_file
+                  0x004884                  _fs_file_reset
+                  0x00488e                  _fs_read_file
+                  0x004898                  _fs_load_file
+                  0x0048ec                  _fs_read_dir
+                  0x0048f4                  _HardwareInit
+                  0x004988                  _pause
+                  0x00499c                  __T1Interrupt
+                  0x0049da                  _tone
+                  0x004a50                  _key_tone
+                  0x004a76                  _noise
+                  0x004a98                  __T2Interrupt
+                  0x004aba                  _partition_open
+                  0x004b3c                  _partition_close
+                  0x004b4a                  _keypad_read
+                  0x004b7c                  _wait_key
+                  0x004b84                  _key_down
+                  0x004b9a                  _prompt_key
+                  0x004bc4                  _keypad_break
+                  0x004bce                  _read16
+                  0x004bda                  _read32
+                  0x004c08                  _write16
+                  0x004c10                  _write32
+                  0x004c78                  ___delay32
 
 External Symbols in Program Memory (by name):
 
                   0x0027e8                  _BUTTONS_DOWN
-                  0x0048f8                  _HardwareInit
-                  0x0046b2                  _LCD_reset
-                  0x0046ca                  _LCDout_init
+                  0x0048f4                  _HardwareInit
+                  0x0046ae                  _LCD_reset
+                  0x0046c6                  _LCDout_init
                   0x002832                  _SCALE
                   0x0002aa                  __DefaultInterrupt
-                  0x0049a0                  __T1Interrupt
-                  0x004a9c                  __T2Interrupt
-                  0x0046f8                  __T4Interrupt
-                  0x004c7c                  ___delay32
+                  0x00499c                  __T1Interrupt
+                  0x004a98                  __T2Interrupt
+                  0x0046f4                  __T4Interrupt
+                  0x004c78                  ___delay32
                   0x0003d0                  ___mulp32eds3
                   0x0003d0                  ___mulp32peds3
                   0x0003d0                  ___mulsi3
@@ -302,18 +302,18 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00479a                  _bad_sdcard
+                  0x004796                  _bad_sdcard
                   0x0011df                  _blinky
                   0x0011de                  _blinky_info
                   0x002707                  _c8test
                   0x002706                  _c8test_info
-                  0x003ff2                  _chip_scroll_left
-                  0x003f5e                  _chip_scroll_right
-                  0x003ea0                  _cls
+                  0x003fee                  _chip_scroll_left
+                  0x003f5a                  _chip_scroll_right
+                  0x003e9c                  _cls
                   0x0026d8                  _credits
-                  0x004508                  _cursor_left
-                  0x00409c                  _display_cursor
-                  0x004042                  _display_page
+                  0x004504                  _cursor_left
+                  0x004098                  _display_cursor
+                  0x00403e                  _display_page
                   0x002c06                  _fat_close
                   0x002df2                  _fat_close_dir
                   0x002c3e                  _fat_close_file
@@ -331,66 +331,66 @@ External Symbols in Program Memory (by name):
                   0x001cba                  _font_6x8
                   0x001bba                  _font_hex_4x6
                   0x001c1a                  _font_hex_8x10
-                  0x004838                  _fs_close_dir
-                  0x004882                  _fs_close_file
-                  0x004888                  _fs_file_reset
-                  0x00489c                  _fs_load_file
-                  0x0047ae                  _fs_mount
-                  0x00480e                  _fs_open_dir
-                  0x00483e                  _fs_open_file
-                  0x0048f0                  _fs_read_dir
-                  0x004892                  _fs_read_file
-                  0x0047fc                  _fs_umount
-                  0x004248                  _games_in_flash
-                  0x004206                  _games_on_sdcard
-                  0x00443e                  _get_cursor
-                  0x004b88                  _key_down
-                  0x004a54                  _key_tone
-                  0x004bc8                  _keypad_break
-                  0x004b4e                  _keypad_read
+                  0x004834                  _fs_close_dir
+                  0x00487e                  _fs_close_file
+                  0x004884                  _fs_file_reset
+                  0x004898                  _fs_load_file
+                  0x0047aa                  _fs_mount
+                  0x00480a                  _fs_open_dir
+                  0x00483a                  _fs_open_file
+                  0x0048ec                  _fs_read_dir
+                  0x00488e                  _fs_read_file
+                  0x0047f8                  _fs_umount
+                  0x004244                  _games_in_flash
+                  0x004202                  _games_on_sdcard
+                  0x00443a                  _get_cursor
+                  0x004b84                  _key_down
+                  0x004a50                  _key_tone
+                  0x004bc4                  _keypad_break
+                  0x004b4a                  _keypad_read
                   0x0023e3                  _lem
                   0x0023e2                  _lem_info
-                  0x0042e2                  _main
+                  0x0042de                  _main
                   0x0002ce                  _memcpy
                   0x0002dc                  _memmove
                   0x0002fe                  _memset
-                  0x00432a                  _new_line
-                  0x004a7a                  _noise
-                  0x004b40                  _partition_close
-                  0x004abe                  _partition_open
-                  0x00498c                  _pause
-                  0x003bc4                  _plot
-                  0x00444c                  _print
-                  0x0044a0                  _print_hex
-                  0x004462                  _print_int
+                  0x004326                  _new_line
+                  0x004a76                  _noise
+                  0x004b3c                  _partition_close
+                  0x004aba                  _partition_open
+                  0x004988                  _pause
+                  0x003bc0                  _plot
+                  0x004448                  _print
+                  0x00449c                  _print_hex
+                  0x00445e                  _print_int
                   0x003028                  _print_vms
-                  0x004b9e                  _prompt_key
-                  0x003d30                  _put_big_sprite
-                  0x004396                  _put_char
-                  0x003c38                  _put_sprite
+                  0x004b9a                  _prompt_key
+                  0x003d2c                  _put_big_sprite
+                  0x004392                  _put_char
+                  0x003c34                  _put_sprite
                   0x00031a                  _rand
-                  0x004bd2                  _read16
-                  0x004bde                  _read32
+                  0x004bce                  _read16
+                  0x004bda                  _read32
                   0x00309c                  _schip
-                  0x004034                  _screen_restore
-                  0x004028                  _screen_save
-                  0x003eb2                  _scroll_down
-                  0x003f94                  _scroll_left
-                  0x003f00                  _scroll_right
-                  0x003ed6                  _scroll_up
-                  0x00374a                  _sd_raw_available
-                  0x0039fe                  _sd_raw_get_info
-                  0x003754                  _sd_raw_init
-                  0x003830                  _sd_raw_read
-                  0x0038b8                  _sd_raw_read_interval
-                  0x0041a2                  _sdc_files
-                  0x0040aa                  _select_file
-                  0x004326                  _select_font
-                  0x004434                  _set_cursor
+                  0x004030                  _screen_restore
+                  0x004024                  _screen_save
+                  0x003eae                  _scroll_down
+                  0x003f90                  _scroll_left
+                  0x003efc                  _scroll_right
+                  0x003ed2                  _scroll_up
+                  0x003746                  _sd_raw_available
+                  0x0039fa                  _sd_raw_get_info
+                  0x003750                  _sd_raw_init
+                  0x00382c                  _sd_raw_read
+                  0x0038b4                  _sd_raw_read_interval
+                  0x00419e                  _sdc_files
+                  0x0040a6                  _select_file
+                  0x004322                  _select_font
+                  0x004430                  _set_cursor
                   0x0003dd                  _sokoban
                   0x0003dc                  _sokoban_info
                   0x001fe2                  _splash
-                  0x0042a6                  _splash_screen
+                  0x0042a2                  _splash_screen
                   0x00030c                  _srand
                   0x000342                  _strchr
                   0x000356                  _strcmp
@@ -398,11 +398,11 @@ External Symbols in Program Memory (by name):
                   0x000370                  _strlen
                   0x00037e                  _strncmp
                   0x0003a0                  _strstr
-                  0x004554                  _text_scroller
-                  0x0049de                  _tone
-                  0x004b80                  _wait_key
-                  0x004c0c                  _write16
-                  0x004c14                  _write32
+                  0x004550                  _text_scroller
+                  0x0049da                  _tone
+                  0x004b7c                  _wait_key
+                  0x004c08                  _write16
+                  0x004c10                  _write32
                   0x002910                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
                   0x0028e4                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
 
@@ -702,11 +702,11 @@ __CONFIG1
                   0x000014          0x4 LONG 0x2aa DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x2aa DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x2aa DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x49a0 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x499c DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x2aa DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x2aa DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x2aa DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x4a9c DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x4a98 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x2aa DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x2aa DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x2aa DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -726,7 +726,7 @@ __CONFIG1
                   0x000044          0x4 LONG 0x2aa DEFINED (__Interrupt24)?ABSOLUTE (__Interrupt24):ABSOLUTE (__DefaultInterrupt)
                   0x000046          0x4 LONG 0x2aa DEFINED (__OC3Interrupt)?ABSOLUTE (__OC3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000048          0x4 LONG 0x2aa DEFINED (__OC4Interrupt)?ABSOLUTE (__OC4Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00004a          0x4 LONG 0x46f8 DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00004a          0x4 LONG 0x46f4 DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004c          0x4 LONG 0x2aa DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x2aa DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000050          0x4 LONG 0x2aa DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -830,11 +830,11 @@ __CONFIG1
                   0x000114          0x4 LONG 0x2aa DEFINED (__AltINT0Interrupt)?ABSOLUTE (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000116          0x4 LONG 0x2aa DEFINED (__AltIC1Interrupt)?ABSOLUTE (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000118          0x4 LONG 0x2aa DEFINED (__AltOC1Interrupt)?ABSOLUTE (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00011a          0x4 LONG 0x49a0 DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00011a          0x4 LONG 0x499c DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00011c          0x4 LONG 0x2aa DEFINED (__AltInterrupt4)?ABSOLUTE (__AltInterrupt4):DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00011e          0x4 LONG 0x2aa DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000120          0x4 LONG 0x2aa DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000122          0x4 LONG 0x4a9c DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000122          0x4 LONG 0x4a98 DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000124          0x4 LONG 0x2aa DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000126          0x4 LONG 0x2aa DEFINED (__AltSPI1ErrInterrupt)?ABSOLUTE (__AltSPI1ErrInterrupt):DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000128          0x4 LONG 0x2aa DEFINED (__AltSPI1Interrupt)?ABSOLUTE (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -854,7 +854,7 @@ __CONFIG1
                   0x000144          0x4 LONG 0x2aa DEFINED (__AltInterrupt24)?ABSOLUTE (__AltInterrupt24):DEFINED (__Interrupt24)?ABSOLUTE (__Interrupt24):ABSOLUTE (__DefaultInterrupt)
                   0x000146          0x4 LONG 0x2aa DEFINED (__AltOC3Interrupt)?ABSOLUTE (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?ABSOLUTE (__OC3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000148          0x4 LONG 0x2aa DEFINED (__AltOC4Interrupt)?ABSOLUTE (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?ABSOLUTE (__OC4Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00014a          0x4 LONG 0x46f8 DEFINED (__AltT4Interrupt)?ABSOLUTE (__AltT4Interrupt):DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00014a          0x4 LONG 0x46f4 DEFINED (__AltT4Interrupt)?ABSOLUTE (__AltT4Interrupt):DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00014c          0x4 LONG 0x2aa DEFINED (__AltT5Interrupt)?ABSOLUTE (__AltT5Interrupt):DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00014e          0x4 LONG 0x2aa DEFINED (__AltINT2Interrupt)?ABSOLUTE (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000150          0x4 LONG 0x2aa DEFINED (__AltU2RXInterrupt)?ABSOLUTE (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1709,7 +1709,7 @@ __c30_signature
                     0xa832                  _SCALE
  .const             0xa852          0xe build/default/production/FAT/fat.o
 
-.text             0x002860       0x23d0
+.text             0x002860       0x23cc
  .text            0x002860        0x7c8 build/default/production/FAT/fat.o
                   0x0028e4                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
                   0x002910                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
@@ -1726,91 +1726,91 @@ __c30_signature
                   0x002ed6                  _fat_get_dir_entry_of_path
                   0x002f9a                  _fat_get_fs_size
                   0x002fba                  _fat_get_fs_free
- .text            0x003028        0x6b0 build/default/production/chip8.o
+ .text            0x003028        0x6ac build/default/production/chip8.o
                   0x003028                  _print_vms
                   0x00309c                  _schip
- .text            0x0036d8        0x4ec build/default/production/FAT/sd_raw.o
-                  0x00374a                  _sd_raw_available
-                  0x003754                  _sd_raw_init
-                  0x003830                  _sd_raw_read
-                  0x0038b8                  _sd_raw_read_interval
-                  0x0039fe                  _sd_raw_get_info
- .text            0x003bc4        0x47e build/default/production/display.o
-                  0x003bc4                  _plot
-                  0x003c38                  _put_sprite
-                  0x003d30                  _put_big_sprite
-                  0x003ea0                  _cls
-                  0x003eb2                  _scroll_down
-                  0x003ed6                  _scroll_up
-                  0x003f00                  _scroll_right
-                  0x003f5e                  _chip_scroll_right
-                  0x003f94                  _scroll_left
-                  0x003ff2                  _chip_scroll_left
-                  0x004028                  _screen_save
-                  0x004034                  _screen_restore
- .text            0x004042        0x2e4 build/default/production/main.o
-                  0x004042                  _display_page
-                  0x00409c                  _display_cursor
-                  0x0040aa                  _select_file
-                  0x0041a2                  _sdc_files
-                  0x004206                  _games_on_sdcard
-                  0x004248                  _games_in_flash
-                  0x0042a6                  _splash_screen
-                  0x0042e2                  _main
- .text            0x004326        0x2c8 build/default/production/text.o
-                  0x004326                  _select_font
-                  0x00432a                  _new_line
-                  0x004396                  _put_char
-                  0x004434                  _set_cursor
-                  0x00443e                  _get_cursor
-                  0x00444c                  _print
-                  0x004462                  _print_int
-                  0x0044a0                  _print_hex
-                  0x004508                  _cursor_left
-                  0x004554                  _text_scroller
- .text            0x0045ee        0x1ac build/default/production/Hardware/LCDout.o
-                  0x0046b2                  _LCD_reset
-                  0x0046ca                  _LCDout_init
-                  0x0046f8                  __T4Interrupt
- .text            0x00479a        0x15e build/default/production/filesys.o
-                  0x00479a                  _bad_sdcard
-                  0x0047ae                  _fs_mount
-                  0x0047fc                  _fs_umount
-                  0x00480e                  _fs_open_dir
-                  0x004838                  _fs_close_dir
-                  0x00483e                  _fs_open_file
-                  0x004882                  _fs_close_file
-                  0x004888                  _fs_file_reset
-                  0x004892                  _fs_read_file
-                  0x00489c                  _fs_load_file
-                  0x0048f0                  _fs_read_dir
- .text            0x0048f8         0xe6 build/default/production/Hardware/HardwareProfile.o
-                  0x0048f8                  _HardwareInit
-                  0x00498c                  _pause
-                  0x0049a0                  __T1Interrupt
- .text            0x0049de         0xe0 build/default/production/tone.o
-                  0x0049de                  _tone
-                  0x004a54                  _key_tone
-                  0x004a7a                  _noise
-                  0x004a9c                  __T2Interrupt
- .text            0x004abe         0x90 build/default/production/FAT/partition.o
-                  0x004abe                  _partition_open
-                  0x004b40                  _partition_close
- .text            0x004b4e         0x84 build/default/production/keypad.o
-                  0x004b4e                  _keypad_read
-                  0x004b80                  _wait_key
-                  0x004b88                  _key_down
-                  0x004b9e                  _prompt_key
-                  0x004bc8                  _keypad_break
- .text            0x004bd2         0x5e build/default/production/FAT/byteordering.o
-                  0x004bd2                  _read16
-                  0x004bde                  _read32
-                  0x004c0c                  _write16
-                  0x004c14                  _write32
+ .text            0x0036d4        0x4ec build/default/production/FAT/sd_raw.o
+                  0x003746                  _sd_raw_available
+                  0x003750                  _sd_raw_init
+                  0x00382c                  _sd_raw_read
+                  0x0038b4                  _sd_raw_read_interval
+                  0x0039fa                  _sd_raw_get_info
+ .text            0x003bc0        0x47e build/default/production/display.o
+                  0x003bc0                  _plot
+                  0x003c34                  _put_sprite
+                  0x003d2c                  _put_big_sprite
+                  0x003e9c                  _cls
+                  0x003eae                  _scroll_down
+                  0x003ed2                  _scroll_up
+                  0x003efc                  _scroll_right
+                  0x003f5a                  _chip_scroll_right
+                  0x003f90                  _scroll_left
+                  0x003fee                  _chip_scroll_left
+                  0x004024                  _screen_save
+                  0x004030                  _screen_restore
+ .text            0x00403e        0x2e4 build/default/production/main.o
+                  0x00403e                  _display_page
+                  0x004098                  _display_cursor
+                  0x0040a6                  _select_file
+                  0x00419e                  _sdc_files
+                  0x004202                  _games_on_sdcard
+                  0x004244                  _games_in_flash
+                  0x0042a2                  _splash_screen
+                  0x0042de                  _main
+ .text            0x004322        0x2c8 build/default/production/text.o
+                  0x004322                  _select_font
+                  0x004326                  _new_line
+                  0x004392                  _put_char
+                  0x004430                  _set_cursor
+                  0x00443a                  _get_cursor
+                  0x004448                  _print
+                  0x00445e                  _print_int
+                  0x00449c                  _print_hex
+                  0x004504                  _cursor_left
+                  0x004550                  _text_scroller
+ .text            0x0045ea        0x1ac build/default/production/Hardware/LCDout.o
+                  0x0046ae                  _LCD_reset
+                  0x0046c6                  _LCDout_init
+                  0x0046f4                  __T4Interrupt
+ .text            0x004796        0x15e build/default/production/filesys.o
+                  0x004796                  _bad_sdcard
+                  0x0047aa                  _fs_mount
+                  0x0047f8                  _fs_umount
+                  0x00480a                  _fs_open_dir
+                  0x004834                  _fs_close_dir
+                  0x00483a                  _fs_open_file
+                  0x00487e                  _fs_close_file
+                  0x004884                  _fs_file_reset
+                  0x00488e                  _fs_read_file
+                  0x004898                  _fs_load_file
+                  0x0048ec                  _fs_read_dir
+ .text            0x0048f4         0xe6 build/default/production/Hardware/HardwareProfile.o
+                  0x0048f4                  _HardwareInit
+                  0x004988                  _pause
+                  0x00499c                  __T1Interrupt
+ .text            0x0049da         0xe0 build/default/production/tone.o
+                  0x0049da                  _tone
+                  0x004a50                  _key_tone
+                  0x004a76                  _noise
+                  0x004a98                  __T2Interrupt
+ .text            0x004aba         0x90 build/default/production/FAT/partition.o
+                  0x004aba                  _partition_open
+                  0x004b3c                  _partition_close
+ .text            0x004b4a         0x84 build/default/production/keypad.o
+                  0x004b4a                  _keypad_read
+                  0x004b7c                  _wait_key
+                  0x004b84                  _key_down
+                  0x004b9a                  _prompt_key
+                  0x004bc4                  _keypad_break
+ .text            0x004bce         0x5e build/default/production/FAT/byteordering.o
+                  0x004bce                  _read16
+                  0x004bda                  _read32
+                  0x004c08                  _write16
+                  0x004c10                  _write32
 
-.dinit            0x004c30         0x4c
- .dinit           0x004c30         0x4c data_init
+.dinit            0x004c2c         0x4c
+ .dinit           0x004c2c         0x4c data_init
 
-.init.delay32     0x004c7c         0x1c
- .init.delay32    0x004c7c         0x1c /opt/microchip/xc16/v1.24/bin/bin/../../lib/libpic30-elf.a(delay32.eo)
-                  0x004c7c                  ___delay32
+.init.delay32     0x004c78         0x1c
+ .init.delay32    0x004c78         0x1c /opt/microchip/xc16/v1.24/bin/bin/../../lib/libpic30-elf.a(delay32.eo)
+                  0x004c78                  ___delay32
