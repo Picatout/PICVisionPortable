@@ -1,5 +1,23 @@
 /*
- * Projet: CHIPCON portable
+* Copyright 2015, Jacques Deschênes
+* This file is part of PICVisionPortable.
+*
+*     PICVisionPortable is free software: you can redistribute it and/or modify
+*     it under the terms of the GNU General Public License as published by
+*     the Free Software Foundation, either version 3 of the License, or
+*     (at your option) any later version.
+*
+*     PICVisionPortable is distributed in the hope that it will be useful,
+*     but WITHOUT ANY WARRANTY; without even the implied warranty of
+*     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*     GNU General Public License for more details.
+*
+*     You should have received a copy of the GNU General Public License
+*     along with PICVisionPortable.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/*
+ * Projet: PICVisionPortable
  * File:   main.c
  * Author: Jacques Deschênes
  * Description: Console de jeux CHIPCON utilisant un LCD avec affichage graphique de 128x64 monochrome.
