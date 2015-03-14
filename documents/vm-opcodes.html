@@ -39,12 +39,13 @@ Les instructions suivies de <b>**</b> sont spécifiques à CHIPcon.<br>
 <tr><td>8XY7</td><td>SUBN VX, VY</td><td>VX := VY - VX, VF := not borrow</td></tr>
 <tr><td>8XYE</td><td>SHL VX</td><td>VX := VX shl 1, VF := carry </td></tr>
 <tr><td>9XY0</td><td>SNE VX, VY</td><td>Saute l'instruction suivante si VX <> VY </td></tr>
-<tr><td>9XY1**</td><td>TONE 1, VX, VY</td><td>Fais entendre une note de la gamme tempérée sur le canal 1. VX note entre 0-F. 0=DO4, F=RÉ5#. VY durée.</td>
+<tr><td>9XY1**</td><td>TONE VX, VY, 1</td><td>Fais entendre une note de la gamme tempérée sur le canal 1. VX note entre 0-F. 0=DO4, F=RÉ5#. VY durée.</td>
 <tr><td>9XY2**</td><td>PRT VX, VY</td><td>imprime une chaîne texte à l'écran. VX coordonnée X et VY coordonnée Y. Le texte est pointé par I. I est incrémenté.</td>
 <tr><td>9XY3**</td><td>PIXI VX, VY</td><td>Inverse le pixel aux coordonnées indiquées par VX,VY.</td>
+<tr><td>9NN4**</td><td>NOISE NN</td><td>bruit blanc d'une durée de NN*8msec. N'attend pas la fin.</td></tr>
 <tr><td>9XY5**</td><td>TONE VX, VY, WAIT</td><td>Fais entendre une note de la gamme tempérée. VX note entre 0-F. 0=DO4, F=RÉ5#. VY durée. Attend la fin de la note avant de poursuivre.</td>
-<tr><td>9XY6**</td><td>TONE 2, VX, VY</td><td>Fais entendre une note de la gamme tempérée sur le canal 2. VX note entre 0-F. 0=DO4, F=RÉ5#. VY durée.</td>
-<tr><td>9XY7**</td><td>PLAY a tone with arguments pointed by I such that M[I]=Fréq., M[I+2]=durée, M[i+3]=canal</td></tr>
+<tr><td>9XY6**</td><td>TONE VX, VY, 2</td><td>Fais entendre une note de la gamme tempérée sur le canal 2. VX note entre 0-F. 0=DO4, F=RÉ5#. VY durée.</td>
+<tr><td>9XY7**</td><td>TONE [I]</td><td>fait entendre une tonalité, arguments M[I..I+3]. M[I]=Fréq., M[I+2]=durée, M[i+3]=canal</td></tr>
 <tr><td>ANNN</td><td>LD I, NNN</td><td>I := NNN </td></tr>
 <tr><td>BNNN</td><td>JP V0, NNN</td><td>saute à l'adresse NNN+V0 </td></tr>
 <tr><td>CXKK</td><td>RND VX, KK</td><td>VX := nombre aléatoire and KK </td></tr>

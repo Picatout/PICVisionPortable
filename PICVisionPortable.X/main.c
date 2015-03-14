@@ -74,7 +74,7 @@
 //****** jeux intégrés ***********
 #include "games/BLINKY/blinky.h"
 #include "games/SOKOBAN/sokoban.h"
-#include "c8test.h"
+#include "../tools/c8test.h"
 #include "games/LEM/lem.h"
 
 #define GAMES_COUNT (4)
@@ -233,6 +233,12 @@ void games_on_sdcard(){
             cls();
             if (schip(F_RESET)==CHIP_BAD_OPCODE){
                 print_vms("CRASH! bad opcode\n");
+                print("PC=");
+                print_hex(vms.pc-2,3);
+                print("\nOPCDE=");
+                print_hex(vms.opcode,4);
+                put_char('\n');
+                prompt_key();
             }
         }
     }
@@ -264,6 +270,12 @@ void games_in_flash(){
 #else
 	if (schip(F_RESET)==CHIP_BAD_OPCODE){
 		print("CRASH! bad opcode\n");
+                print("PC=");
+                print_hex(vms.pc-2,3);
+                print("\nOPCDE=");
+                print_hex(vms.opcode,4);
+                put_char('\n');
+                prompt_key();
 	};
 #endif
 }

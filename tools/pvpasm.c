@@ -392,10 +392,10 @@ void op1(mnemo_t code){
 	store_code(b1,b2);
 }
 
-// codes avec 2 arguments
+// codes avec 2 ou 3 arguments
 //"SE","SNE","ADD","SUB","SUBN","OR","AND","XOR","RND","TONE","PRT"
 void op2(unsigned code){
-	unsigned b1,b2,mark;
+	unsigned b1,b2,mark,i;
 	bool reg2;
 	
 	next_token();
@@ -481,20 +481,6 @@ void op2(unsigned code){
 		else 
 			error();	
 		break;
-	case eTONE: // TONE  9XY1
-		if (reg2){
-			b1|=0x90;
-			next_token();
-			if (tok_id==eNONE){
-				b2|=1;
-			}else if (tok_id==eCOMMA){
-				next_token();
-				if (tok_id==eSYMBOL && !strcmp(tok_value,"WAIT")){
-					b2|=5;
-				}else error();
-			} else error();
-		}else error();
-		break;
 	case ePRT: // PRT  9XY2
 		if (reg2){
 			b1|=0x90;
@@ -511,6 +497,49 @@ void op2(unsigned code){
 op2_done:	
 	store_code(b1,b2);
 }
+
+// TONE  VX, VY, N | TONE [I] | TONE VX, VY, WAIT
+void tone(){
+	unsigned b1,b2,i;
+
+	b1=0x90;
+	next_token();
+	if (tok_id==eLBRACKET){
+		next_token();
+		if ((tok_id!=eSYMBOL) || !((tok_id==eSYMBOL) && !strcmp(tok_value,"I"))) error();
+		next_token();
+		if (tok_id!=eRBRACKET) error();
+		b2 = 7;
+	}else{
+		if (!((tok_id==eSYMBOL) && (tok_value[0]=='V') && hex(tok_value[1]))) error();
+		b1+=(tok_value[1]-'0')<=9?tok_value[1]-'0':tok_value[1]-'A'+10;
+		next_token();
+		if (tok_id!=eCOMMA) error();
+		b2=parse_vx()<<4;
+		next_token();
+		if (tok_id!=eCOMMA) error();
+		next_token();
+		switch(tok_id){
+		case eSYMBOL:
+			if (strcmp(tok_value,"WAIT")) error();
+			b2|=5;
+			break;
+		case eNUMBER:
+			i=token_to_i();
+			if (i==1){
+				b2 |= 1;
+			}else if (i==2){
+				b2 |= 6;
+			}else{
+				error();
+			}
+			break;
+		default:
+			error();
+		}	
+	}
+	store_code(b1,b2);
+}//f()
 
 // DRW DXYN
 void draw(){
@@ -1037,6 +1066,7 @@ unsigned expression(){
 
 void assemble_line(){
 	int i;
+
 		next_token();
 		while (tok_id){
 			if (!(tok_id==eSYMBOL || tok_id==eLABEL)) error();
@@ -1071,10 +1101,12 @@ void assemble_line(){
 				case eAND:
 				case eXOR:
 				case eRND:
-				case eTONE:
 				case ePRT:
 				case ePIXI:
 					op2(i);
+					break;
+				case eTONE:
+					tone();
 					break;
 				case eDRW:
 					draw();

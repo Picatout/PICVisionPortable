@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define C8TEST_SIZE (323)
+#define C8TEST_SIZE (346)
 
 extern const uint8_t c8test[C8TEST_SIZE];
 

@@ -325,7 +325,7 @@ int main(int argc, char *argv[]){
 				previous=SKIP;
 				break;
 			case 1:
-				sprintf(line+strlen(line),"TONE V%X,V%X\n",r1(b1),r2(b2));
+				sprintf(line+strlen(line),"TONE V%X,V%X, 1\n",r1(b1),r2(b2));
 				previous=NOT_SKIP;
 				break;
 			case 2:
@@ -341,6 +341,14 @@ int main(int argc, char *argv[]){
 				break;
 			case 5:
 				sprintf(line+strlen(line),"TONE V%X,V%X,WAIT\n",r1(b1),r2(b2));
+				previous=NOT_SKIP;
+				break;
+			case 6:
+				sprintf(line+strlen(line),"TONE V%X,V%X, 2\n",r1(b1),r2(b2));
+				previous=NOT_SKIP;
+				break;
+			case 7:
+				sprintf(line+strlen(line),"TONE [I]\n");
 				previous=NOT_SKIP;
 				break;
 			}

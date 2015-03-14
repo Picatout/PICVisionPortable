@@ -59,6 +59,7 @@ typedef struct vm_state{
 #define PROG_SPACE (4096)
 
 extern uint8_t chip_prog[PROG_SPACE];
+extern vm_state_t vms;
 
 void print_vms(const char *msg);
 	

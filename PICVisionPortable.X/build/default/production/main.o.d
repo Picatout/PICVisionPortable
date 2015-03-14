@@ -20,6 +20,6 @@ FAT/partition_config.h  \
 FAT/sd_raw.h  \
  games/BLINKY/blinky.h  \
 games/SOKOBAN/sokoban.h  \
-c8test.h  \
-games/LEM/lem.h  \
- splash.h 
+../tools/c8test.h  \
+ games/LEM/lem.h  \
+splash.h 

@@ -39,7 +39,7 @@
 #define ry(b2)  ((b2&0xf0)>>4)
 
 // état de la machine virtuelle
-static vm_state_t vms;
+vm_state_t vms;
 
 uint8_t chip_prog[PROG_SPACE];
 
@@ -272,8 +272,8 @@ uint8_t schip(uint8_t flags){
         case 0x903: // 9XY3 PIXI VX, VY  inverse le pixel aux coordonnées indiquées par VX,VY
             plot(vms.var[x],vms.var[y],INVERT);
             break;
-        case 0x904: // 9XY4 bruit blanc, durée indiqué par NN*8msec.
-            noise((((vms.b1&0xf)<<4)+(vms.b2>>4))<<3,(bool)vms.var[x]);
+        case 0x904: // 9NN4 bruit blanc, durée indiqué par NN*8msec
+            noise((((vms.b1&0xf)<<4)+(vms.b2>>4))<<3,0);
             break;
         case 0x905: // 9XY5 TONE VX, VY, WAIT  joue une note de la gamme tempérée attend la fin avant de poursuivre
             key_tone(vms.var[x],vms.var[y]<<3,1,true);

@@ -20,6 +20,11 @@ EQU NEXT 2
 	low
 	high
 	cls
+	ld x, 0
+	ld y, 0
+	ld i, msg0
+	prt x,y
+	call wait_next
 	call test1  ; arithmétique
 	call wait_next
 	call test2  ; logique + shift
@@ -27,9 +32,7 @@ EQU NEXT 2
 	call test3  ; scroll left,right,down
 	call wait_next
 	call test4  ; son
-;	call wait_next
-;	call test6
-;	call wait_next
+
 idle: 
     jp idle
 
@@ -105,32 +108,23 @@ test3: ; scroll right and left
 	ret
 
 test4: ; sons
+	cls
+	ld i, msg4
+	ld x, 0
+	ld y, 0
+	prt x,y
 	ld v2, 0
-	ld v1, 30
-t4_l1:
-	ld wreg, v2
-	tone wreg, v1
-	pixi wreg,v1
-	ld wreg, v1
-	call delay
-	add v2,1
-	se v2,16
-	jp t4_l1
-	ld v2,0
-t4_l2:
-	ld wreg, v2
-	tone wreg, v1, wait
-	pixi wreg, v1
-	add v2,1
-	se v2,16
-	jp t4_l2
-	ld st, v1
-	ld wreg, v1
-	call delay
-t4_l3:
-	ld wreg, k
-	tone wreg, v1, wait
-	jp t4_l3
+	ld v1, 255
+	tone v2,v1,1
+	ld v2, 2
+	ld v1, 255
+	tone v2,v1, 2
+	call wait_next
+	ld i, son
+	tone [i]
+	ld wreg, 4
+	add I, wreg
+	tone [i]
 	ret
 
 display_result:
@@ -190,9 +184,20 @@ wait_next1:
 
 BCD: 
 db  00,00,00
+msg0:
+ascii "VM test"
 msg1: 
 ascii "test op. arith."
 msg2: 
 ascii "test op. logique"
 msg3: 
 ascii "test scrolling"
+msg4:
+ascii "test son"
+son:
+	dw 1000
+	db 100
+	db 1
+	dw 1500
+	db 100
+	db 2
