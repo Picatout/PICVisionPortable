@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define SOKOBAN_SIZE (3584)
+#define SOKOBAN_SIZE (3636)
 
 extern const uint8_t sokoban[SOKOBAN_SIZE];
 

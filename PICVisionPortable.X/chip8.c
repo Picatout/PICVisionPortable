@@ -48,9 +48,6 @@ typedef enum sprite_src {SMALL_HEX,LARGE_HEX,PROG_MEM} sprite_src_t;
 // origine du sprite
 sprite_src_t sprite_org;
 
-// stockage temporaire sprite
-//static uint8_t block[32];
-
 
 void print_vms(const char *msg){
 //	screen_save();
@@ -334,11 +331,11 @@ uint8_t schip(uint8_t flags){
             vms.ix += vms.var[x];
             break;
         case 0xf29: // FX29     fait pointé vms.ix vers le caractère VX dans la police FONT_SHEX
-            vms.ix=vms.var[x]*SHEX_HEIGHT;
+            vms.ix=(vms.var[x]&15)*SHEX_HEIGHT;
             sprite_org=SMALL_HEX;
             break;
         case 0xf30: // FX30 (schip)    fait pointé vms.ix vers le caractère dans  VX (0..9) pour la police FONT_LHEX
-            vms.ix=vms.var[x]*LHEX_HEIGHT;
+            vms.ix=(vms.var[x]%10)*LHEX_HEIGHT;
             sprite_org=LARGE_HEX;
             break;
         case 0xf33: // FX33     met la représentation BCD de VX dans M(vms.ix)..M(vms.ix+2)

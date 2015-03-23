@@ -39,6 +39,9 @@ Command:
   build/default/production/splash.o \
   build/default/production/filesys.o \
   build/default/production/_ext/2103491380/c8test.o \
+  build/default/production/games/MINES/mines.o \
+  build/default/production/games/CAR/car.o \
+  build/default/production/games/ANT/ant.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp24FJ64GA002.gld.00 \
   --stack=256 \
@@ -99,12 +102,12 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x1dc           0x2ca  (714)
-.const                       0x3dc              0x2570          0x3828  (14376)
-.text                       0x294c              0x23e2          0x35d3  (13779)
-.dinit                      0x4d2e                0x46            0x69  (105)
-.init.delay32               0x4d74                0x1c            0x2a  (42)
+.const                       0x3dc              0x3c2e          0x5a45  (23109)
+.text                       0x400a              0x23f0          0x35e8  (13800)
+.dinit                      0x63fa                0x46            0x69  (105)
+.init.delay32               0x6440                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x7158  (29016) 44%
+                     Total program memory used (bytes):         0x938a  (37770) 57%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -183,118 +186,124 @@ External Symbols in Program Memory (by address):
                   0x0003d0                  ___mulp32peds3
                   0x0003dc                  _sokoban_info
                   0x0003dd                  _sokoban
-                  0x0011de                  _blinky_info
-                  0x0011df                  _blinky
-                  0x001bba                  _font_hex_4x6
-                  0x001c1a                  _font_hex_8x10
-                  0x001cba                  _font_6x8
-                  0x001fe2                  _splash
-                  0x0023e2                  _lem_info
-                  0x0023e3                  _lem
-                  0x00264c                  _flash_games
-                  0x0026e4                  _credits
-                  0x002712                  _c8test_info
-                  0x002713                  _c8test
-                  0x0028d4                  _BUTTONS_DOWN
-                  0x00291e                  _SCALE
-                  0x0029d0                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
-                  0x0029fc                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
-                  0x002cc6                  _fat_open
-                  0x002cee                  _fat_close
-                  0x002cf6                  _fat_open_file
-                  0x002d26                  _fat_close_file
-                  0x002d2e                  _fat_read_file
-                  0x002e50                  _fat_seek_file
-                  0x002e9e                  _fat_open_dir
-                  0x002eda                  _fat_close_dir
-                  0x002ee2                  _fat_reset_dir
-                  0x002ef6                  _fat_read_dir
-                  0x002fb8                  _fat_get_dir_entry_of_path
-                  0x00307c                  _fat_get_fs_size
-                  0x00309c                  _fat_get_fs_free
-                  0x00310a                  _print_vms
-                  0x00317e                  _schip
-                  0x003826                  _sd_raw_available
-                  0x003830                  _sd_raw_init
-                  0x00390c                  _sd_raw_read
-                  0x003994                  _sd_raw_read_interval
-                  0x003ada                  _sd_raw_get_info
-                  0x003ca0                  _plot
-                  0x003d14                  _put_sprite
-                  0x003e0c                  _put_big_sprite
-                  0x003f7a                  _cls
-                  0x003f8c                  _scroll_down
-                  0x003fb0                  _scroll_up
-                  0x003fda                  _scroll_right
-                  0x004038                  _chip_scroll_right
-                  0x00406e                  _scroll_left
-                  0x0040cc                  _chip_scroll_left
-                  0x004102                  _screen_save
-                  0x00410e                  _screen_restore
-                  0x00411c                  _display_page
-                  0x004176                  _display_cursor
-                  0x004184                  _select_file
-                  0x004282                  _sdc_files
-                  0x0042e6                  _games_on_sdcard
-                  0x004342                  _games_in_flash
-                  0x0043ba                  _splash_screen
-                  0x0043f6                  _main
-                  0x00443a                  _select_font
-                  0x00443e                  _new_line
-                  0x0044aa                  _put_char
-                  0x00454e                  _set_cursor
-                  0x004556                  _get_cursor
-                  0x004564                  _print
-                  0x00457a                  _print_int
-                  0x0045b8                  _print_hex
-                  0x004620                  _cursor_left
-                  0x00466a                  _text_scroller
-                  0x0047c0                  _LCD_reset
-                  0x0047d4                  _LCDout_init
-                  0x004802                  __T4Interrupt
-                  0x0048a4                  _bad_sdcard
-                  0x0048b8                  _fs_mount
-                  0x004906                  _fs_umount
-                  0x004918                  _fs_open_dir
-                  0x004942                  _fs_close_dir
-                  0x004948                  _fs_open_file
-                  0x00498c                  _fs_close_file
-                  0x004992                  _fs_file_reset
-                  0x00499c                  _fs_read_file
-                  0x0049a6                  _fs_load_file
-                  0x0049fa                  _fs_read_dir
-                  0x004a02                  _HardwareInit
-                  0x004a92                  _pause
-                  0x004aa6                  __T1Interrupt
-                  0x004ae8                  _tone
-                  0x004b52                  _key_tone
-                  0x004b78                  _noise
-                  0x004b9a                  __T2Interrupt
-                  0x004bbc                  _partition_open
-                  0x004c3e                  _partition_close
-                  0x004c4c                  _keypad_read
-                  0x004c7e                  _wait_key
-                  0x004c86                  _key_down
-                  0x004c9c                  _prompt_key
-                  0x004cc6                  _keypad_break
-                  0x004cd0                  _read16
-                  0x004cdc                  _read32
-                  0x004d0a                  _write16
-                  0x004d12                  _write32
-                  0x004d74                  ___delay32
+                  0x001212                  _ant_info
+                  0x001213                  _ant
+                  0x001e94                  _blinky_info
+                  0x001ece                  _blinky
+                  0x0028a8                  _mines_info
+                  0x0028da                  _mines
+                  0x003040                  _font_hex_4x6
+                  0x0030a0                  _font_hex_8x10
+                  0x003140                  _font_6x8
+                  0x003468                  _splash
+                  0x003868                  _lem_info
+                  0x0038a6                  _lem
+                  0x003a62                  _car_info
+                  0x003a8d                  _car
+                  0x003ce4                  _flash_games
+                  0x003da2                  _credits
+                  0x003dd0                  _c8test_info
+                  0x003dd1                  _c8test
+                  0x003f92                  _BUTTONS_DOWN
+                  0x003fdc                  _SCALE
+                  0x00408e                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
+                  0x0040ba                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
+                  0x004384                  _fat_open
+                  0x0043ac                  _fat_close
+                  0x0043b4                  _fat_open_file
+                  0x0043e4                  _fat_close_file
+                  0x0043ec                  _fat_read_file
+                  0x00450e                  _fat_seek_file
+                  0x00455c                  _fat_open_dir
+                  0x004598                  _fat_close_dir
+                  0x0045a0                  _fat_reset_dir
+                  0x0045b4                  _fat_read_dir
+                  0x004676                  _fat_get_dir_entry_of_path
+                  0x00473a                  _fat_get_fs_size
+                  0x00475a                  _fat_get_fs_free
+                  0x0047c8                  _print_vms
+                  0x00483c                  _schip
+                  0x004eec                  _sd_raw_available
+                  0x004ef6                  _sd_raw_init
+                  0x004fd2                  _sd_raw_read
+                  0x00505a                  _sd_raw_read_interval
+                  0x0051a0                  _sd_raw_get_info
+                  0x005366                  _plot
+                  0x0053da                  _put_sprite
+                  0x0054d2                  _put_big_sprite
+                  0x005640                  _cls
+                  0x005652                  _scroll_down
+                  0x005676                  _scroll_up
+                  0x0056a0                  _scroll_right
+                  0x0056fe                  _chip_scroll_right
+                  0x005734                  _scroll_left
+                  0x005792                  _chip_scroll_left
+                  0x0057c8                  _screen_save
+                  0x0057d4                  _screen_restore
+                  0x0057e2                  _display_page
+                  0x00583c                  _display_cursor
+                  0x00584a                  _select_file
+                  0x005948                  _sdc_files
+                  0x0059ac                  _games_on_sdcard
+                  0x005a08                  _games_in_flash
+                  0x005aa0                  _splash_screen
+                  0x005adc                  _main
+                  0x005b20                  _select_font
+                  0x005b24                  _new_line
+                  0x005b90                  _put_char
+                  0x005c2e                  _set_cursor
+                  0x005c36                  _get_cursor
+                  0x005c44                  _print
+                  0x005c5a                  _print_int
+                  0x005c98                  _print_hex
+                  0x005d00                  _cursor_left
+                  0x005d4a                  _text_scroller
+                  0x005e8c                  _LCD_reset
+                  0x005ea0                  _LCDout_init
+                  0x005ece                  __T4Interrupt
+                  0x005f70                  _bad_sdcard
+                  0x005f84                  _fs_mount
+                  0x005fd2                  _fs_umount
+                  0x005fe4                  _fs_open_dir
+                  0x00600e                  _fs_close_dir
+                  0x006014                  _fs_open_file
+                  0x006058                  _fs_close_file
+                  0x00605e                  _fs_file_reset
+                  0x006068                  _fs_read_file
+                  0x006072                  _fs_load_file
+                  0x0060c6                  _fs_read_dir
+                  0x0060ce                  _HardwareInit
+                  0x00615e                  _pause
+                  0x006172                  __T1Interrupt
+                  0x0061b4                  _tone
+                  0x00621e                  _key_tone
+                  0x006244                  _noise
+                  0x006266                  __T2Interrupt
+                  0x006288                  _partition_open
+                  0x00630a                  _partition_close
+                  0x006318                  _keypad_read
+                  0x00634a                  _wait_key
+                  0x006352                  _key_down
+                  0x006368                  _prompt_key
+                  0x006392                  _keypad_break
+                  0x00639c                  _read16
+                  0x0063a8                  _read32
+                  0x0063d6                  _write16
+                  0x0063de                  _write32
+                  0x006440                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x0028d4                  _BUTTONS_DOWN
-                  0x004a02                  _HardwareInit
-                  0x0047c0                  _LCD_reset
-                  0x0047d4                  _LCDout_init
-                  0x00291e                  _SCALE
+                  0x003f92                  _BUTTONS_DOWN
+                  0x0060ce                  _HardwareInit
+                  0x005e8c                  _LCD_reset
+                  0x005ea0                  _LCDout_init
+                  0x003fdc                  _SCALE
                   0x0002aa                  __DefaultInterrupt
-                  0x004aa6                  __T1Interrupt
-                  0x004b9a                  __T2Interrupt
-                  0x004802                  __T4Interrupt
-                  0x004d74                  ___delay32
+                  0x006172                  __T1Interrupt
+                  0x006266                  __T2Interrupt
+                  0x005ece                  __T4Interrupt
+                  0x006440                  ___delay32
                   0x0003d0                  ___mulp32eds3
                   0x0003d0                  ___mulp32peds3
                   0x0003d0                  ___mulsi3
@@ -303,95 +312,101 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0048a4                  _bad_sdcard
-                  0x0011df                  _blinky
-                  0x0011de                  _blinky_info
-                  0x002713                  _c8test
-                  0x002712                  _c8test_info
-                  0x0040cc                  _chip_scroll_left
-                  0x004038                  _chip_scroll_right
-                  0x003f7a                  _cls
-                  0x0026e4                  _credits
-                  0x004620                  _cursor_left
-                  0x004176                  _display_cursor
-                  0x00411c                  _display_page
-                  0x002cee                  _fat_close
-                  0x002eda                  _fat_close_dir
-                  0x002d26                  _fat_close_file
-                  0x002fb8                  _fat_get_dir_entry_of_path
-                  0x00309c                  _fat_get_fs_free
-                  0x00307c                  _fat_get_fs_size
-                  0x002cc6                  _fat_open
-                  0x002e9e                  _fat_open_dir
-                  0x002cf6                  _fat_open_file
-                  0x002ef6                  _fat_read_dir
-                  0x002d2e                  _fat_read_file
-                  0x002ee2                  _fat_reset_dir
-                  0x002e50                  _fat_seek_file
-                  0x00264c                  _flash_games
-                  0x001cba                  _font_6x8
-                  0x001bba                  _font_hex_4x6
-                  0x001c1a                  _font_hex_8x10
-                  0x004942                  _fs_close_dir
-                  0x00498c                  _fs_close_file
-                  0x004992                  _fs_file_reset
-                  0x0049a6                  _fs_load_file
-                  0x0048b8                  _fs_mount
-                  0x004918                  _fs_open_dir
-                  0x004948                  _fs_open_file
-                  0x0049fa                  _fs_read_dir
-                  0x00499c                  _fs_read_file
-                  0x004906                  _fs_umount
-                  0x004342                  _games_in_flash
-                  0x0042e6                  _games_on_sdcard
-                  0x004556                  _get_cursor
-                  0x004c86                  _key_down
-                  0x004b52                  _key_tone
-                  0x004cc6                  _keypad_break
-                  0x004c4c                  _keypad_read
-                  0x0023e3                  _lem
-                  0x0023e2                  _lem_info
-                  0x0043f6                  _main
+                  0x001213                  _ant
+                  0x001212                  _ant_info
+                  0x005f70                  _bad_sdcard
+                  0x001ece                  _blinky
+                  0x001e94                  _blinky_info
+                  0x003dd1                  _c8test
+                  0x003dd0                  _c8test_info
+                  0x003a8d                  _car
+                  0x003a62                  _car_info
+                  0x005792                  _chip_scroll_left
+                  0x0056fe                  _chip_scroll_right
+                  0x005640                  _cls
+                  0x003da2                  _credits
+                  0x005d00                  _cursor_left
+                  0x00583c                  _display_cursor
+                  0x0057e2                  _display_page
+                  0x0043ac                  _fat_close
+                  0x004598                  _fat_close_dir
+                  0x0043e4                  _fat_close_file
+                  0x004676                  _fat_get_dir_entry_of_path
+                  0x00475a                  _fat_get_fs_free
+                  0x00473a                  _fat_get_fs_size
+                  0x004384                  _fat_open
+                  0x00455c                  _fat_open_dir
+                  0x0043b4                  _fat_open_file
+                  0x0045b4                  _fat_read_dir
+                  0x0043ec                  _fat_read_file
+                  0x0045a0                  _fat_reset_dir
+                  0x00450e                  _fat_seek_file
+                  0x003ce4                  _flash_games
+                  0x003140                  _font_6x8
+                  0x003040                  _font_hex_4x6
+                  0x0030a0                  _font_hex_8x10
+                  0x00600e                  _fs_close_dir
+                  0x006058                  _fs_close_file
+                  0x00605e                  _fs_file_reset
+                  0x006072                  _fs_load_file
+                  0x005f84                  _fs_mount
+                  0x005fe4                  _fs_open_dir
+                  0x006014                  _fs_open_file
+                  0x0060c6                  _fs_read_dir
+                  0x006068                  _fs_read_file
+                  0x005fd2                  _fs_umount
+                  0x005a08                  _games_in_flash
+                  0x0059ac                  _games_on_sdcard
+                  0x005c36                  _get_cursor
+                  0x006352                  _key_down
+                  0x00621e                  _key_tone
+                  0x006392                  _keypad_break
+                  0x006318                  _keypad_read
+                  0x0038a6                  _lem
+                  0x003868                  _lem_info
+                  0x005adc                  _main
                   0x0002ce                  _memcpy
                   0x0002dc                  _memmove
                   0x0002fe                  _memset
-                  0x00443e                  _new_line
-                  0x004b78                  _noise
-                  0x004c3e                  _partition_close
-                  0x004bbc                  _partition_open
-                  0x004a92                  _pause
-                  0x003ca0                  _plot
-                  0x004564                  _print
-                  0x0045b8                  _print_hex
-                  0x00457a                  _print_int
-                  0x00310a                  _print_vms
-                  0x004c9c                  _prompt_key
-                  0x003e0c                  _put_big_sprite
-                  0x0044aa                  _put_char
-                  0x003d14                  _put_sprite
+                  0x0028da                  _mines
+                  0x0028a8                  _mines_info
+                  0x005b24                  _new_line
+                  0x006244                  _noise
+                  0x00630a                  _partition_close
+                  0x006288                  _partition_open
+                  0x00615e                  _pause
+                  0x005366                  _plot
+                  0x005c44                  _print
+                  0x005c98                  _print_hex
+                  0x005c5a                  _print_int
+                  0x0047c8                  _print_vms
+                  0x006368                  _prompt_key
+                  0x0054d2                  _put_big_sprite
+                  0x005b90                  _put_char
+                  0x0053da                  _put_sprite
                   0x00031a                  _rand
-                  0x004cd0                  _read16
-                  0x004cdc                  _read32
-                  0x00317e                  _schip
-                  0x00410e                  _screen_restore
-                  0x004102                  _screen_save
-                  0x003f8c                  _scroll_down
-                  0x00406e                  _scroll_left
-                  0x003fda                  _scroll_right
-                  0x003fb0                  _scroll_up
-                  0x003826                  _sd_raw_available
-                  0x003ada                  _sd_raw_get_info
-                  0x003830                  _sd_raw_init
-                  0x00390c                  _sd_raw_read
-                  0x003994                  _sd_raw_read_interval
-                  0x004282                  _sdc_files
-                  0x004184                  _select_file
-                  0x00443a                  _select_font
-                  0x00454e                  _set_cursor
+                  0x00639c                  _read16
+                  0x0063a8                  _read32
+                  0x00483c                  _schip
+                  0x0057d4                  _screen_restore
+                  0x0057c8                  _screen_save
+                  0x005652                  _scroll_down
+                  0x005734                  _scroll_left
+                  0x0056a0                  _scroll_right
+                  0x005676                  _scroll_up
+                  0x004eec                  _sd_raw_available
+                  0x0051a0                  _sd_raw_get_info
+                  0x004ef6                  _sd_raw_init
+                  0x004fd2                  _sd_raw_read
+                  0x00505a                  _sd_raw_read_interval
+                  0x005948                  _sdc_files
+                  0x00584a                  _select_file
+                  0x005b20                  _select_font
+                  0x005c2e                  _set_cursor
                   0x0003dd                  _sokoban
                   0x0003dc                  _sokoban_info
-                  0x001fe2                  _splash
-                  0x0043ba                  _splash_screen
+                  0x003468                  _splash
+                  0x005aa0                  _splash_screen
                   0x00030c                  _srand
                   0x000342                  _strchr
                   0x000356                  _strcmp
@@ -399,13 +414,13 @@ External Symbols in Program Memory (by name):
                   0x000370                  _strlen
                   0x00037e                  _strncmp
                   0x0003a0                  _strstr
-                  0x00466a                  _text_scroller
-                  0x004ae8                  _tone
-                  0x004c7e                  _wait_key
-                  0x004d0a                  _write16
-                  0x004d12                  _write32
-                  0x0029fc                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
-                  0x0029d0                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
+                  0x005d4a                  _text_scroller
+                  0x0061b4                  _tone
+                  0x00634a                  _wait_key
+                  0x0063d6                  _write16
+                  0x0063de                  _write32
+                  0x0040ba                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
+                  0x00408e                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
 
 Memory Configuration
 
@@ -440,6 +455,9 @@ LOAD build/default/production/keypad.o
 LOAD build/default/production/splash.o
 LOAD build/default/production/filesys.o
 LOAD build/default/production/_ext/2103491380/c8test.o
+LOAD build/default/production/games/MINES/mines.o
+LOAD build/default/production/games/CAR/car.o
+LOAD build/default/production/games/ANT/ant.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libfx-elf.a
@@ -518,29 +536,32 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x6b72
+.debug_info       0x000000       0x70d5
  *(.debug_info)
  .debug_info      0x000000        0x231 build/default/production/FAT/byteordering.o
  .debug_info      0x000231       0x1191 build/default/production/FAT/fat.o
  .debug_info      0x0013c2        0x4d8 build/default/production/FAT/partition.o
  .debug_info      0x00189a        0xde7 build/default/production/FAT/sd_raw.o
- .debug_info      0x002681        0x1a4 build/default/production/games/BLINKY/blinky.o
- .debug_info      0x002825        0x1a8 build/default/production/games/SOKOBAN/sokoban.o
- .debug_info      0x0029cd        0x198 build/default/production/games/LEM/lem.o
- .debug_info      0x002b65        0xca5 build/default/production/Hardware/HardwareProfile.o
- .debug_info      0x00380a        0x5d4 build/default/production/Hardware/LCDout.o
- .debug_info      0x003dde        0x905 build/default/production/main.o
- .debug_info      0x0046e3        0x47f build/default/production/chip8.o
- .debug_info      0x004b62        0x4fa build/default/production/text.o
- .debug_info      0x00505c        0x692 build/default/production/tone.o
- .debug_info      0x0056ee        0x6aa build/default/production/display.o
- .debug_info      0x005d98        0x2e5 build/default/production/keypad.o
- .debug_info      0x00607d        0x168 build/default/production/splash.o
- .debug_info      0x0061e5        0x7ed build/default/production/filesys.o
- .debug_info      0x0069d2        0x1a0 build/default/production/_ext/2103491380/c8test.o
+ .debug_info      0x002681        0x1ac build/default/production/games/BLINKY/blinky.o
+ .debug_info      0x00282d        0x1a8 build/default/production/games/SOKOBAN/sokoban.o
+ .debug_info      0x0029d5        0x1a0 build/default/production/games/LEM/lem.o
+ .debug_info      0x002b75        0xca5 build/default/production/Hardware/HardwareProfile.o
+ .debug_info      0x00381a        0x5d4 build/default/production/Hardware/LCDout.o
+ .debug_info      0x003dee        0x980 build/default/production/main.o
+ .debug_info      0x00476e        0x47f build/default/production/chip8.o
+ .debug_info      0x004bed        0x4fa build/default/production/text.o
+ .debug_info      0x0050e7        0x692 build/default/production/tone.o
+ .debug_info      0x005779        0x6aa build/default/production/display.o
+ .debug_info      0x005e23        0x2e5 build/default/production/keypad.o
+ .debug_info      0x006108        0x168 build/default/production/splash.o
+ .debug_info      0x006270        0x7ed build/default/production/filesys.o
+ .debug_info      0x006a5d        0x1a0 build/default/production/_ext/2103491380/c8test.o
+ .debug_info      0x006bfd        0x1a0 build/default/production/games/MINES/mines.o
+ .debug_info      0x006d9d        0x1a0 build/default/production/games/CAR/car.o
+ .debug_info      0x006f3d        0x198 build/default/production/games/ANT/ant.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000       0x140f
+.debug_abbrev     0x000000       0x151d
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x90 build/default/production/FAT/byteordering.o
  .debug_abbrev    0x000090        0x189 build/default/production/FAT/fat.o
@@ -551,17 +572,20 @@ __CONFIG1
  .debug_abbrev    0x0005bd         0x5f build/default/production/games/LEM/lem.o
  .debug_abbrev    0x00061c        0x187 build/default/production/Hardware/HardwareProfile.o
  .debug_abbrev    0x0007a3        0x151 build/default/production/Hardware/LCDout.o
- .debug_abbrev    0x0008f4        0x20f build/default/production/main.o
- .debug_abbrev    0x000b03        0x17f build/default/production/chip8.o
- .debug_abbrev    0x000c82        0x163 build/default/production/text.o
- .debug_abbrev    0x000de5        0x151 build/default/production/tone.o
- .debug_abbrev    0x000f36        0x1ae build/default/production/display.o
- .debug_abbrev    0x0010e4        0x115 build/default/production/keypad.o
- .debug_abbrev    0x0011f9         0x56 build/default/production/splash.o
- .debug_abbrev    0x00124f        0x161 build/default/production/filesys.o
- .debug_abbrev    0x0013b0         0x5f build/default/production/_ext/2103491380/c8test.o
+ .debug_abbrev    0x0008f4        0x200 build/default/production/main.o
+ .debug_abbrev    0x000af4        0x17f build/default/production/chip8.o
+ .debug_abbrev    0x000c73        0x163 build/default/production/text.o
+ .debug_abbrev    0x000dd6        0x151 build/default/production/tone.o
+ .debug_abbrev    0x000f27        0x1ae build/default/production/display.o
+ .debug_abbrev    0x0010d5        0x115 build/default/production/keypad.o
+ .debug_abbrev    0x0011ea         0x56 build/default/production/splash.o
+ .debug_abbrev    0x001240        0x161 build/default/production/filesys.o
+ .debug_abbrev    0x0013a1         0x5f build/default/production/_ext/2103491380/c8test.o
+ .debug_abbrev    0x001400         0x5f build/default/production/games/MINES/mines.o
+ .debug_abbrev    0x00145f         0x5f build/default/production/games/CAR/car.o
+ .debug_abbrev    0x0014be         0x5f build/default/production/games/ANT/ant.o
 
-.debug_line       0x000000       0x41a7
+.debug_line       0x000000       0x4355
  *(.debug_line)
  .debug_line      0x000000        0x170 build/default/production/FAT/byteordering.o
  .debug_line      0x000170        0xc95 build/default/production/FAT/fat.o
@@ -572,15 +596,18 @@ __CONFIG1
  .debug_line      0x0018e8         0x85 build/default/production/games/LEM/lem.o
  .debug_line      0x00196d        0x291 build/default/production/Hardware/HardwareProfile.o
  .debug_line      0x001bfe        0x31c build/default/production/Hardware/LCDout.o
- .debug_line      0x001f1a        0x6cb build/default/production/main.o
- .debug_line      0x0025e5        0x65b build/default/production/chip8.o
- .debug_line      0x002c40        0x4e5 build/default/production/text.o
- .debug_line      0x003125        0x203 build/default/production/tone.o
- .debug_line      0x003328        0x775 build/default/production/display.o
- .debug_line      0x003a9d        0x213 build/default/production/keypad.o
- .debug_line      0x003cb0         0x7e build/default/production/splash.o
- .debug_line      0x003d2e        0x3f2 build/default/production/filesys.o
- .debug_line      0x004120         0x87 build/default/production/_ext/2103491380/c8test.o
+ .debug_line      0x001f1a        0x710 build/default/production/main.o
+ .debug_line      0x00262a        0x65b build/default/production/chip8.o
+ .debug_line      0x002c85        0x4bb build/default/production/text.o
+ .debug_line      0x003140        0x203 build/default/production/tone.o
+ .debug_line      0x003343        0x775 build/default/production/display.o
+ .debug_line      0x003ab8        0x213 build/default/production/keypad.o
+ .debug_line      0x003ccb         0x7e build/default/production/splash.o
+ .debug_line      0x003d49        0x3f2 build/default/production/filesys.o
+ .debug_line      0x00413b         0x87 build/default/production/_ext/2103491380/c8test.o
+ .debug_line      0x0041c2         0x89 build/default/production/games/MINES/mines.o
+ .debug_line      0x00424b         0x85 build/default/production/games/CAR/car.o
+ .debug_line      0x0042d0         0x85 build/default/production/games/ANT/ant.o
 
 .debug_frame      0x000000        0x6e4
  *(.debug_frame)
@@ -598,20 +625,20 @@ __CONFIG1
  .debug_frame     0x0005bc         0x64 build/default/production/keypad.o
  .debug_frame     0x000620         0xc4 build/default/production/filesys.o
 
-.debug_str        0x000000        0x349
+.debug_str        0x000000        0x359
  *(.debug_str)
  .debug_str       0x000000         0x9b build/default/production/FAT/fat.o
  .debug_str       0x00009b         0x44 build/default/production/FAT/partition.o
  .debug_str       0x0000df         0x6c build/default/production/FAT/sd_raw.o
  .debug_str       0x00014b         0x5f build/default/production/Hardware/HardwareProfile.o
  .debug_str       0x0001aa         0x2f build/default/production/Hardware/LCDout.o
- .debug_str       0x0001d9         0x75 build/default/production/main.o
- .debug_str       0x00024e         0x3b build/default/production/chip8.o
- .debug_str       0x000289         0x32 build/default/production/text.o
- .debug_str       0x0002bb         0x2d build/default/production/tone.o
- .debug_str       0x0002e8         0x40 build/default/production/display.o
- .debug_str       0x000328          0xd build/default/production/keypad.o
- .debug_str       0x000335         0x14 build/default/production/filesys.o
+ .debug_str       0x0001d9         0x85 build/default/production/main.o
+ .debug_str       0x00025e         0x3b build/default/production/chip8.o
+ .debug_str       0x000299         0x32 build/default/production/text.o
+ .debug_str       0x0002cb         0x2d build/default/production/tone.o
+ .debug_str       0x0002f8         0x40 build/default/production/display.o
+ .debug_str       0x000338          0xd build/default/production/keypad.o
+ .debug_str       0x000345         0x14 build/default/production/filesys.o
 
 .debug_loc
  *(.debug_loc)
@@ -620,7 +647,7 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x7dd
+                  0x000000        0x856
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x40 build/default/production/FAT/byteordering.o
@@ -658,6 +685,12 @@ __CONFIG1
                   0x0006ec         0xc4 build/default/production/filesys.o
  .debug_pubnames
                   0x0007b0         0x2d build/default/production/_ext/2103491380/c8test.o
+ .debug_pubnames
+                  0x0007dd         0x2b build/default/production/games/MINES/mines.o
+ .debug_pubnames
+                  0x000808         0x27 build/default/production/games/CAR/car.o
+ .debug_pubnames
+                  0x00082f         0x27 build/default/production/games/ANT/ant.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -703,11 +736,11 @@ __CONFIG1
                   0x000014          0x4 LONG 0x2aa DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x2aa DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x2aa DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x4aa6 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x6172 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x2aa DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x2aa DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x2aa DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x4b9a DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x6266 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x2aa DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x2aa DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x2aa DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -727,7 +760,7 @@ __CONFIG1
                   0x000044          0x4 LONG 0x2aa DEFINED (__Interrupt24)?ABSOLUTE (__Interrupt24):ABSOLUTE (__DefaultInterrupt)
                   0x000046          0x4 LONG 0x2aa DEFINED (__OC3Interrupt)?ABSOLUTE (__OC3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000048          0x4 LONG 0x2aa DEFINED (__OC4Interrupt)?ABSOLUTE (__OC4Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00004a          0x4 LONG 0x4802 DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00004a          0x4 LONG 0x5ece DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004c          0x4 LONG 0x2aa DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x2aa DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000050          0x4 LONG 0x2aa DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -831,11 +864,11 @@ __CONFIG1
                   0x000114          0x4 LONG 0x2aa DEFINED (__AltINT0Interrupt)?ABSOLUTE (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000116          0x4 LONG 0x2aa DEFINED (__AltIC1Interrupt)?ABSOLUTE (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000118          0x4 LONG 0x2aa DEFINED (__AltOC1Interrupt)?ABSOLUTE (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00011a          0x4 LONG 0x4aa6 DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00011a          0x4 LONG 0x6172 DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00011c          0x4 LONG 0x2aa DEFINED (__AltInterrupt4)?ABSOLUTE (__AltInterrupt4):DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00011e          0x4 LONG 0x2aa DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000120          0x4 LONG 0x2aa DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000122          0x4 LONG 0x4b9a DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000122          0x4 LONG 0x6266 DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000124          0x4 LONG 0x2aa DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000126          0x4 LONG 0x2aa DEFINED (__AltSPI1ErrInterrupt)?ABSOLUTE (__AltSPI1ErrInterrupt):DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000128          0x4 LONG 0x2aa DEFINED (__AltSPI1Interrupt)?ABSOLUTE (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -855,7 +888,7 @@ __CONFIG1
                   0x000144          0x4 LONG 0x2aa DEFINED (__AltInterrupt24)?ABSOLUTE (__AltInterrupt24):DEFINED (__Interrupt24)?ABSOLUTE (__Interrupt24):ABSOLUTE (__DefaultInterrupt)
                   0x000146          0x4 LONG 0x2aa DEFINED (__AltOC3Interrupt)?ABSOLUTE (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?ABSOLUTE (__OC3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000148          0x4 LONG 0x2aa DEFINED (__AltOC4Interrupt)?ABSOLUTE (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?ABSOLUTE (__OC4Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00014a          0x4 LONG 0x4802 DEFINED (__AltT4Interrupt)?ABSOLUTE (__AltT4Interrupt):DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00014a          0x4 LONG 0x5ece DEFINED (__AltT4Interrupt)?ABSOLUTE (__AltT4Interrupt):DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00014c          0x4 LONG 0x2aa DEFINED (__AltT5Interrupt)?ABSOLUTE (__AltT5Interrupt):DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00014e          0x4 LONG 0x2aa DEFINED (__AltINT2Interrupt)?ABSOLUTE (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000150          0x4 LONG 0x2aa DEFINED (__AltU2RXInterrupt)?ABSOLUTE (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1533,7 +1566,7 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000138        0x98f
+                  0x000138        0x9e9
  .debug_pubtypes
                   0x000138         0x38 build/default/production/FAT/byteordering.o
  .debug_pubtypes
@@ -1570,75 +1603,87 @@ LOAD data_init
                   0x00096e        0x13b build/default/production/filesys.o
  .debug_pubtypes
                   0x000aa9         0x1e build/default/production/_ext/2103491380/c8test.o
+ .debug_pubtypes
+                  0x000ac7         0x1e build/default/production/games/MINES/mines.o
+ .debug_pubtypes
+                  0x000ae5         0x1e build/default/production/games/CAR/car.o
+ .debug_pubtypes
+                  0x000b03         0x1e build/default/production/games/ANT/ant.o
 
 __c30_signature
-                  0x000ac8         0xc6
+                  0x000b22         0xd8
  __c30_signature
-                  0x000ac8          0x6 build/default/production/FAT/byteordering.o
+                  0x000b22          0x6 build/default/production/FAT/byteordering.o
  __c30_signature
-                  0x000ace          0x6 build/default/production/FAT/fat.o
+                  0x000b28          0x6 build/default/production/FAT/fat.o
  __c30_signature
-                  0x000ad4          0x6 build/default/production/FAT/partition.o
+                  0x000b2e          0x6 build/default/production/FAT/partition.o
  __c30_signature
-                  0x000ada          0x6 build/default/production/FAT/sd_raw.o
+                  0x000b34          0x6 build/default/production/FAT/sd_raw.o
  __c30_signature
-                  0x000ae0          0x6 build/default/production/games/BLINKY/blinky.o
+                  0x000b3a          0x6 build/default/production/games/BLINKY/blinky.o
  __c30_signature
-                  0x000ae6          0x6 build/default/production/games/SOKOBAN/sokoban.o
+                  0x000b40          0x6 build/default/production/games/SOKOBAN/sokoban.o
  __c30_signature
-                  0x000aec          0x6 build/default/production/games/LEM/lem.o
+                  0x000b46          0x6 build/default/production/games/LEM/lem.o
  __c30_signature
-                  0x000af2          0x6 build/default/production/Hardware/HardwareProfile.o
+                  0x000b4c          0x6 build/default/production/Hardware/HardwareProfile.o
  __c30_signature
-                  0x000af8          0x6 build/default/production/Hardware/LCDout.o
+                  0x000b52          0x6 build/default/production/Hardware/LCDout.o
  __c30_signature
-                  0x000afe          0x6 build/default/production/main.o
+                  0x000b58          0x6 build/default/production/main.o
  __c30_signature
-                  0x000b04          0x6 build/default/production/chip8.o
+                  0x000b5e          0x6 build/default/production/chip8.o
  __c30_signature
-                  0x000b0a          0x6 build/default/production/text.o
+                  0x000b64          0x6 build/default/production/text.o
  __c30_signature
-                  0x000b10          0x6 build/default/production/tone.o
+                  0x000b6a          0x6 build/default/production/tone.o
  __c30_signature
-                  0x000b16          0x6 build/default/production/display.o
+                  0x000b70          0x6 build/default/production/display.o
  __c30_signature
-                  0x000b1c          0x6 build/default/production/keypad.o
+                  0x000b76          0x6 build/default/production/keypad.o
  __c30_signature
-                  0x000b22          0x6 build/default/production/splash.o
+                  0x000b7c          0x6 build/default/production/splash.o
  __c30_signature
-                  0x000b28          0x6 build/default/production/filesys.o
+                  0x000b82          0x6 build/default/production/filesys.o
  __c30_signature
-                  0x000b2e          0x6 build/default/production/_ext/2103491380/c8test.o
+                  0x000b88          0x6 build/default/production/_ext/2103491380/c8test.o
  __c30_signature
-                  0x000b34          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+                  0x000b8e          0x6 build/default/production/games/MINES/mines.o
  __c30_signature
-                  0x000b3a          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                  0x000b94          0x6 build/default/production/games/CAR/car.o
  __c30_signature
-                  0x000b40          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x000b9a          0x6 build/default/production/games/ANT/ant.o
  __c30_signature
-                  0x000b46          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
+                  0x000ba0          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x000b4c          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+                  0x000ba6          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x000b52          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memmove.eo)
+                  0x000bac          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
  __c30_signature
-                  0x000b58          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memset.eo)
+                  0x000bb2          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
  __c30_signature
-                  0x000b5e          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(rand.eo)
+                  0x000bb8          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memcpy.eo)
  __c30_signature
-                  0x000b64          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strchr.eo)
+                  0x000bbe          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memmove.eo)
  __c30_signature
-                  0x000b6a          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strcmp.eo)
+                  0x000bc4          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memset.eo)
  __c30_signature
-                  0x000b70          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strcpy.eo)
+                  0x000bca          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(rand.eo)
  __c30_signature
-                  0x000b76          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strlen.eo)
+                  0x000bd0          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strchr.eo)
  __c30_signature
-                  0x000b7c          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strncmp.eo)
+                  0x000bd6          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strcmp.eo)
  __c30_signature
-                  0x000b82          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strstr.eo)
+                  0x000bdc          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strcpy.eo)
  __c30_signature
-                  0x000b88          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
+                  0x000be2          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strlen.eo)
+ __c30_signature
+                  0x000be8          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strncmp.eo)
+ __c30_signature
+                  0x000bee          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(strstr.eo)
+ __c30_signature
+                  0x000bf4          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
 
 .nbss               0x0800       0x154e
  .nbss              0x0800       0x106c build/default/production/chip8.o
@@ -1678,138 +1723,147 @@ __c30_signature
 .config_IESO      0x00abfc          0x2
  .config_IESO     0x00abfc          0x2 build/default/production/main.o
 
-.const              0x83dc       0x2570 load address 0x0003dc  
- .const             0x83dc        0xe02 build/default/production/games/SOKOBAN/sokoban.o
+.const              0x83dc       0x3c2e load address 0x0003dc  
+ .const             0x83dc        0xe36 build/default/production/games/SOKOBAN/sokoban.o
                     0x83dc                  _sokoban_info
                     0x83dd                  _sokoban
- .const             0x91de        0x9dc build/default/production/games/BLINKY/blinky.o
-                    0x91de                  _blinky_info
-                    0x91df                  _blinky
- .const             0x9bba        0x428 build/default/production/text.o
-                    0x9bba                  _font_hex_4x6
-                    0x9c1a                  _font_hex_8x10
-                    0x9cba                  _font_6x8
- .const             0x9fe2        0x400 build/default/production/splash.o
-                    0x9fe2                  _splash
- .const             0xa3e2        0x1be build/default/production/games/LEM/lem.o
-                    0xa3e2                  _lem_info
-                    0xa3e3                  _lem
- .const             0xa5a0        0x172 build/default/production/main.o
-                    0xa64c                  _flash_games
-                    0xa6e4                  _credits
- .const             0xa712        0x15c build/default/production/_ext/2103491380/c8test.o
-                    0xa712                  _c8test_info
-                    0xa713                  _c8test
- .const             0xa86e         0x58 build/default/production/filesys.o
- .const             0xa8c6         0x2e build/default/production/keypad.o
-                    0xa8d4                  _BUTTONS_DOWN
- .const             0xa8f4         0x2a build/default/production/chip8.o
- .const             0xa91e         0x20 build/default/production/tone.o
-                    0xa91e                  _SCALE
- .const             0xa93e          0xe build/default/production/FAT/fat.o
+ .const             0x9212        0xc82 build/default/production/games/ANT/ant.o
+                    0x9212                  _ant_info
+                    0x9213                  _ant
+ .const             0x9e94        0xa14 build/default/production/games/BLINKY/blinky.o
+                    0x9e94                  _blinky_info
+                    0x9ece                  _blinky
+ .const             0xa8a8        0x798 build/default/production/games/MINES/mines.o
+                    0xa8a8                  _mines_info
+                    0xa8da                  _mines
+ .const             0xb040        0x428 build/default/production/text.o
+                    0xb040                  _font_hex_4x6
+                    0xb0a0                  _font_hex_8x10
+                    0xb140                  _font_6x8
+ .const             0xb468        0x400 build/default/production/splash.o
+                    0xb468                  _splash
+ .const             0xb868        0x1fa build/default/production/games/LEM/lem.o
+                    0xb868                  _lem_info
+                    0xb8a6                  _lem
+ .const             0xba62        0x1d6 build/default/production/games/CAR/car.o
+                    0xba62                  _car_info
+                    0xba8d                  _car
+ .const             0xbc38        0x198 build/default/production/main.o
+                    0xbce4                  _flash_games
+                    0xbda2                  _credits
+ .const             0xbdd0        0x15c build/default/production/_ext/2103491380/c8test.o
+                    0xbdd0                  _c8test_info
+                    0xbdd1                  _c8test
+ .const             0xbf2c         0x58 build/default/production/filesys.o
+ .const             0xbf84         0x2e build/default/production/keypad.o
+                    0xbf92                  _BUTTONS_DOWN
+ .const             0xbfb2         0x2a build/default/production/chip8.o
+ .const             0xbfdc         0x20 build/default/production/tone.o
+                    0xbfdc                  _SCALE
+ .const             0xbffc          0xe build/default/production/FAT/fat.o
 
-.text             0x00294c       0x23e2
- .text            0x00294c        0x7be build/default/production/FAT/fat.o
-                  0x0029d0                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
-                  0x0029fc                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
-                  0x002cc6                  _fat_open
-                  0x002cee                  _fat_close
-                  0x002cf6                  _fat_open_file
-                  0x002d26                  _fat_close_file
-                  0x002d2e                  _fat_read_file
-                  0x002e50                  _fat_seek_file
-                  0x002e9e                  _fat_open_dir
-                  0x002eda                  _fat_close_dir
-                  0x002ee2                  _fat_reset_dir
-                  0x002ef6                  _fat_read_dir
-                  0x002fb8                  _fat_get_dir_entry_of_path
-                  0x00307c                  _fat_get_fs_size
-                  0x00309c                  _fat_get_fs_free
- .text            0x00310a        0x6aa build/default/production/chip8.o
-                  0x00310a                  _print_vms
-                  0x00317e                  _schip
- .text            0x0037b4        0x4ec build/default/production/FAT/sd_raw.o
-                  0x003826                  _sd_raw_available
-                  0x003830                  _sd_raw_init
-                  0x00390c                  _sd_raw_read
-                  0x003994                  _sd_raw_read_interval
-                  0x003ada                  _sd_raw_get_info
- .text            0x003ca0        0x47c build/default/production/display.o
-                  0x003ca0                  _plot
-                  0x003d14                  _put_sprite
-                  0x003e0c                  _put_big_sprite
-                  0x003f7a                  _cls
-                  0x003f8c                  _scroll_down
-                  0x003fb0                  _scroll_up
-                  0x003fda                  _scroll_right
-                  0x004038                  _chip_scroll_right
-                  0x00406e                  _scroll_left
-                  0x0040cc                  _chip_scroll_left
-                  0x004102                  _screen_save
-                  0x00410e                  _screen_restore
- .text            0x00411c        0x31e build/default/production/main.o
-                  0x00411c                  _display_page
-                  0x004176                  _display_cursor
-                  0x004184                  _select_file
-                  0x004282                  _sdc_files
-                  0x0042e6                  _games_on_sdcard
-                  0x004342                  _games_in_flash
-                  0x0043ba                  _splash_screen
-                  0x0043f6                  _main
- .text            0x00443a        0x2ca build/default/production/text.o
-                  0x00443a                  _select_font
-                  0x00443e                  _new_line
-                  0x0044aa                  _put_char
-                  0x00454e                  _set_cursor
-                  0x004556                  _get_cursor
-                  0x004564                  _print
-                  0x00457a                  _print_int
-                  0x0045b8                  _print_hex
-                  0x004620                  _cursor_left
-                  0x00466a                  _text_scroller
- .text            0x004704        0x1a0 build/default/production/Hardware/LCDout.o
-                  0x0047c0                  _LCD_reset
-                  0x0047d4                  _LCDout_init
-                  0x004802                  __T4Interrupt
- .text            0x0048a4        0x15e build/default/production/filesys.o
-                  0x0048a4                  _bad_sdcard
-                  0x0048b8                  _fs_mount
-                  0x004906                  _fs_umount
-                  0x004918                  _fs_open_dir
-                  0x004942                  _fs_close_dir
-                  0x004948                  _fs_open_file
-                  0x00498c                  _fs_close_file
-                  0x004992                  _fs_file_reset
-                  0x00499c                  _fs_read_file
-                  0x0049a6                  _fs_load_file
-                  0x0049fa                  _fs_read_dir
- .text            0x004a02         0xe6 build/default/production/Hardware/HardwareProfile.o
-                  0x004a02                  _HardwareInit
-                  0x004a92                  _pause
-                  0x004aa6                  __T1Interrupt
- .text            0x004ae8         0xd4 build/default/production/tone.o
-                  0x004ae8                  _tone
-                  0x004b52                  _key_tone
-                  0x004b78                  _noise
-                  0x004b9a                  __T2Interrupt
- .text            0x004bbc         0x90 build/default/production/FAT/partition.o
-                  0x004bbc                  _partition_open
-                  0x004c3e                  _partition_close
- .text            0x004c4c         0x84 build/default/production/keypad.o
-                  0x004c4c                  _keypad_read
-                  0x004c7e                  _wait_key
-                  0x004c86                  _key_down
-                  0x004c9c                  _prompt_key
-                  0x004cc6                  _keypad_break
- .text            0x004cd0         0x5e build/default/production/FAT/byteordering.o
-                  0x004cd0                  _read16
-                  0x004cdc                  _read32
-                  0x004d0a                  _write16
-                  0x004d12                  _write32
+.text             0x00400a       0x23f0
+ .text            0x00400a        0x7be build/default/production/FAT/fat.o
+                  0x00408e                  build/default/production/FAT/fat.o:_fat_get_fs_free_16_callback
+                  0x0040ba                  build/default/production/FAT/fat.o:_fat_dir_entry_read_callback
+                  0x004384                  _fat_open
+                  0x0043ac                  _fat_close
+                  0x0043b4                  _fat_open_file
+                  0x0043e4                  _fat_close_file
+                  0x0043ec                  _fat_read_file
+                  0x00450e                  _fat_seek_file
+                  0x00455c                  _fat_open_dir
+                  0x004598                  _fat_close_dir
+                  0x0045a0                  _fat_reset_dir
+                  0x0045b4                  _fat_read_dir
+                  0x004676                  _fat_get_dir_entry_of_path
+                  0x00473a                  _fat_get_fs_size
+                  0x00475a                  _fat_get_fs_free
+ .text            0x0047c8        0x6b2 build/default/production/chip8.o
+                  0x0047c8                  _print_vms
+                  0x00483c                  _schip
+ .text            0x004e7a        0x4ec build/default/production/FAT/sd_raw.o
+                  0x004eec                  _sd_raw_available
+                  0x004ef6                  _sd_raw_init
+                  0x004fd2                  _sd_raw_read
+                  0x00505a                  _sd_raw_read_interval
+                  0x0051a0                  _sd_raw_get_info
+ .text            0x005366        0x47c build/default/production/display.o
+                  0x005366                  _plot
+                  0x0053da                  _put_sprite
+                  0x0054d2                  _put_big_sprite
+                  0x005640                  _cls
+                  0x005652                  _scroll_down
+                  0x005676                  _scroll_up
+                  0x0056a0                  _scroll_right
+                  0x0056fe                  _chip_scroll_right
+                  0x005734                  _scroll_left
+                  0x005792                  _chip_scroll_left
+                  0x0057c8                  _screen_save
+                  0x0057d4                  _screen_restore
+ .text            0x0057e2        0x33e build/default/production/main.o
+                  0x0057e2                  _display_page
+                  0x00583c                  _display_cursor
+                  0x00584a                  _select_file
+                  0x005948                  _sdc_files
+                  0x0059ac                  _games_on_sdcard
+                  0x005a08                  _games_in_flash
+                  0x005aa0                  _splash_screen
+                  0x005adc                  _main
+ .text            0x005b20        0x2b0 build/default/production/text.o
+                  0x005b20                  _select_font
+                  0x005b24                  _new_line
+                  0x005b90                  _put_char
+                  0x005c2e                  _set_cursor
+                  0x005c36                  _get_cursor
+                  0x005c44                  _print
+                  0x005c5a                  _print_int
+                  0x005c98                  _print_hex
+                  0x005d00                  _cursor_left
+                  0x005d4a                  _text_scroller
+ .text            0x005dd0        0x1a0 build/default/production/Hardware/LCDout.o
+                  0x005e8c                  _LCD_reset
+                  0x005ea0                  _LCDout_init
+                  0x005ece                  __T4Interrupt
+ .text            0x005f70        0x15e build/default/production/filesys.o
+                  0x005f70                  _bad_sdcard
+                  0x005f84                  _fs_mount
+                  0x005fd2                  _fs_umount
+                  0x005fe4                  _fs_open_dir
+                  0x00600e                  _fs_close_dir
+                  0x006014                  _fs_open_file
+                  0x006058                  _fs_close_file
+                  0x00605e                  _fs_file_reset
+                  0x006068                  _fs_read_file
+                  0x006072                  _fs_load_file
+                  0x0060c6                  _fs_read_dir
+ .text            0x0060ce         0xe6 build/default/production/Hardware/HardwareProfile.o
+                  0x0060ce                  _HardwareInit
+                  0x00615e                  _pause
+                  0x006172                  __T1Interrupt
+ .text            0x0061b4         0xd4 build/default/production/tone.o
+                  0x0061b4                  _tone
+                  0x00621e                  _key_tone
+                  0x006244                  _noise
+                  0x006266                  __T2Interrupt
+ .text            0x006288         0x90 build/default/production/FAT/partition.o
+                  0x006288                  _partition_open
+                  0x00630a                  _partition_close
+ .text            0x006318         0x84 build/default/production/keypad.o
+                  0x006318                  _keypad_read
+                  0x00634a                  _wait_key
+                  0x006352                  _key_down
+                  0x006368                  _prompt_key
+                  0x006392                  _keypad_break
+ .text            0x00639c         0x5e build/default/production/FAT/byteordering.o
+                  0x00639c                  _read16
+                  0x0063a8                  _read32
+                  0x0063d6                  _write16
+                  0x0063de                  _write32
 
-.dinit            0x004d2e         0x46
- .dinit           0x004d2e         0x46 data_init
+.dinit            0x0063fa         0x46
+ .dinit           0x0063fa         0x46 data_init
 
-.init.delay32     0x004d74         0x1c
- .init.delay32    0x004d74         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
-                  0x004d74                  ___delay32
+.init.delay32     0x006440         0x1c
+ .init.delay32    0x006440         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x006440                  ___delay32

@@ -19,7 +19,8 @@ FAT/fat_config.h  \
 FAT/partition_config.h  \
 FAT/sd_raw.h  \
  games/BLINKY/blinky.h  \
-games/SOKOBAN/sokoban.h  \
-../tools/c8test.h  \
- games/LEM/lem.h  \
+games/LEM/lem.h  \
+games/MINES/mines.h  \
+ games//CAR/car.h  \
+games/ANT/ant.h  \
 splash.h 

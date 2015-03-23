@@ -7,6 +7,6 @@
 
 extern const uint8_t blinky[BLINKY_SIZE];
 
-extern const uint8_t blinky_info[];
+extern const char blinky_info[];
 
 #endif

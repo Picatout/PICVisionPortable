@@ -1,45 +1,49 @@
 code_000:
 	HIGH
 code_002:
-	CALL code_01B	;#002
+	CALL code_01B ; initialisation
 code_004:
 	LD VE, 5
-	CALL code_02F	;#006
+	CALL delay  ; délais
 	SKNP VC
-	JP code_037	;#00A
+	JP code_037
 	SKNP VD
-	JP code_07F	;#00E
+	JP code_07F
 	SNE VA, 50
-	JP code_004	;#012
+	JP code_004
 	SKNP VB
 code_016:
-	CALL code_03F	;#016
-	JP code_004	;#018
+	CALL code_03F
+	JP code_004
 
 data_01A:
 	DB #80
-code_01B:
+code_01B: ; initialisation
 	CLS
-	LD I, data_288
-	LD VE, [I]
-	LD I, data_264
+	LD I, data_288 ; initialisation V[0..VE] 
+	LD VE, [I]     ; #FE, #01, #80, #06, #00, #00, #0F, #07, #02, #02, #00, #09, #07, #0A, #05 
+	LD I, data_264 ; splash screen
 	SNE VA, 0
-	JP code_258	;#025
+	JP code_258  ; affiche mot sokoban avec effet déroulant
+;************************
+; affichage no de grille
 code_027:
-	CALL code_069	;#027
+	CALL code_069
 	LD F, V6
 	DRW V9, V9, 5
 	RET
-code_02F:
+;***********
+; pause	
+delay:
 	LD V1, DT
 	SE V1, 0
-	JP code_02F	;#033
+	JP delay
 	RET
 code_037:
 	SNE VA, 1
-	JP code_004	;#039
+	JP code_004
 	LD VE, 8
-	JP code_016	;#03D
+	JP code_016
 code_03F:
 	LD DT, V7
 	LD V0, 1
@@ -50,86 +54,90 @@ code_03F:
 	LD I, data_0F3
 	LD V1, [I]
 	SNE VE, 5
-	JP code_05F	;#051
+	JP code_05F
 	SUB V1, V3
 	SNE VF, 0
 	ADD V0, 255
 	ADD VA, 255
 	LD V5, V3
-	JP code_065	;#05D
+	JP code_065
 code_05F:
 	ADD V1, V4
 	ADD V0, VF
 	ADD VA, 1
 code_065:
 	LD [I], V1
-	CALL code_06D	;#067
+	CALL code_06D
+; **************************
+; convertie no grille en BCD
 code_069:
-	LD I, data_24C
+	LD I, BCD
 	LD B, VA
+;****************************
+; affiche le no de grille	
 code_06D:
-	LD I, data_24C
+	LD I, BCD
 	LD V2, [I]
 	LD F, V1
 	DRW VD, V9, 5
 	LD F, V2
 	DRW V6, V9, 5
 	LD I, data_288
-	LD [I], VA
+	LD [I], VA  ; conserve V0..VA , VA=no de grille
 	RET
 code_07F:
-	CALL code_01B	;#07F
+	CALL code_01B
 code_081:
 	LD VD, 0
 	LD VC, 0
 	LD V2, 2
 	LD ST, V2
 	LD V1, 64
-	CALL code_0D5	;#08B
+	CALL code_0D5
 	LD V7, V6
 	LD V1, 128
-	CALL code_0D5	;#091
+	CALL code_0D5
 	LD V4, VE
 	LD V1, VE
 	ADD V1, V6
 code_099:
-	CALL code_0A7	;#099
+	CALL code_0A7
 	SNE VC, 0
-	JP code_12D	;#09D
+	JP code_12D
 	SNE V3, 24
-	JP code_0BB	;#0A1
+	JP code_0BB
 code_0A3:
-	CALL code_10F	;#0A3
-	JP code_099	;#0A5
+	CALL code_10F
+	JP code_099
 code_0A7:
 	LD VE, 0
-	CALL code_101	;#0A9
+	CALL code_101
 	SNE VE, 1
-	CALL code_101	;#0AD
-	CALL code_101	;#0AF
+	CALL code_101
+	CALL code_101
 	LD V3, VE
 	XOR V3, V2
 	SHL V3
 	SHL V3
 	RET
 code_0BB:
-	CALL code_0A7	;#0BB
+	CALL code_0A7
 	SNE V3, 24
-	JP code_0CF	;#0BF
-	CALL code_0E5	;#0C1
+	JP code_0CF
+	CALL code_0E5
 	ADD VE, 4
 code_0C5:
-	CALL code_10F	;#0C5
+	CALL code_10F
 	ADD VE, 255
 	SE VE, 0
-	JP code_0C5	;#0CB
-	JP code_099	;#0CD
+	JP code_0C5
+	JP code_099
 code_0CF:
 	LD I, data_285
 	LD [I], V7
-	JP code_0A3	;#0D3
+	JP code_0A3
 code_0D5:
-	CALL code_0E5	;#0D5
+	CALL code_0E5
 	ADD VE, 5
 	SHL VE
 	SHL VE
@@ -139,10 +147,10 @@ code_0D5:
 	RET
 code_0E5:
 	LD VE, 0
-	CALL code_101	;#0E7
-	CALL code_101	;#0E9
-	CALL code_101	;#0EB
-	CALL code_101	;#0ED
+	CALL code_101
+	CALL code_101
+	CALL code_101
+	CALL code_101
 	RET
 code_0F1:
 	LD VD, 8
@@ -155,7 +163,7 @@ code_0F1:
 	ADD VC, 1
 code_101:
 	SNE VD, 0
-	JP code_0F1	;#103
+	JP code_0F1
 	ADD VD, 255
 	SHL VE
 	SHL VB
@@ -163,9 +171,9 @@ code_101:
 	RET
 code_10F:
 	SNE V3, 16
-	JP code_119	;#111
+	JP code_119
 	SE V3, 20
-	JP code_11B	;#115
+	JP code_11B
 	ADD V8, 1
 code_119:
 	ADD V9, 1
@@ -184,27 +192,27 @@ code_12D:
 	LD V7, [I]
 	LD VA, 0
 code_133:
-	CALL code_02F	;#133
+	CALL delay
 code_135:
 	LD VB, 1
 	LD I, data_293
 	LD V5, [I]
 	SNE  V8, V9
-	JP code_217	;#13D
+	JP code_217
 	SKNP V1
-	JP code_23C	;#141
+	JP code_23C
 	SKNP V0
-	JP code_240	;#145
+	JP code_240
 	SKNP V3
-	JP code_244	;#149
+	JP code_244
 	SKNP V4
-	JP code_248	;#14D
+	JP code_248
 	SKNP V5
-	JP code_229	;#151
+	JP code_229
 	SKP V2
-	JP code_135	;#155
+	JP code_135
 	SNE VC, 0
-	JP code_135	;#159
+	JP code_135
 	LD VB, 0
 	ADD VC, 255
 	LD I, data_2AC
@@ -223,38 +231,38 @@ code_171:
 	ADD I, V1
 	LD V5, [I]
 	SNE VB, 0
-	CALL code_1F3	;#17D
+	CALL code_1F3
 	LD V0, V6
 	LD V1, V7
 	ADD V0, V4
 	ADD V1, V5
 	SNE VB, 0
-	JP code_193	;#189
+	JP code_193
 	LD I, data_23A
-	CALL code_207	;#18D
+	CALL code_207
 	SNE VE, 1
-	JP code_133	;#191
+	JP code_133
 code_193:
 	LD I, data_01A
-	CALL code_207	;#195
+	CALL code_207
 	SNE VE, 0
-	JP code_1C3	;#199
+	JP code_1C3
 	LD V2, V0
 	LD V3, V1
 	ADD V2, V4
 	ADD V3, V5
 	SNE VB, 0
-	JP code_1E5	;#1A5
+	JP code_1E5
 	LD I, data_01A
-	CALL code_20F	;#1A9
+	CALL code_20F
 	SNE VE, 1
-	JP code_133	;#1AD
+	JP code_133
 	ADD VA, 128
 code_1B1:
 	LD I, data_2A4
-	CALL code_207	;#1B3
+	CALL code_207
 	SUB V8, VE
-	CALL code_20F	;#1B7
+	CALL code_20F
 	ADD V8, VE
 	LD I, data_2B0
 	DRW V0, V1, 4
@@ -262,7 +270,7 @@ code_1B1:
 	DRW V2, V3, 4
 code_1C3:
 	SNE VB, 0
-	JP code_1EB	;#1C5
+	JP code_1EB
 	SE VC, 57
 	ADD VC, 1
 	LD V0, VA
@@ -278,16 +286,16 @@ code_1DD:
 	ADD V6, V4
 	ADD V7, V5
 	DRW V6, V7, 4
-	JP code_133	;#1E3
+	JP code_133
 code_1E5:
 	SHL VA
 	SNE VF, 1
-	JP code_1B1	;#1E9
+	JP code_1B1
 code_1EB:
 	LD I, data_285
 	LD V7, [I]
 	LD I, data_2AC
-	JP code_1DD	;#1F1
+	JP code_1DD
 code_1F3:
 	LD I, data_285
 	LD [I], V7
@@ -313,52 +321,61 @@ code_217:
 	LD ST, V3
 	LD V0, 50
 	LD DT, V0
-	CALL code_02F	;#21D
-	CALL code_01B	;#21F
+	CALL delay
+	CALL code_01B
 	SNE VA, 50
-	JP code_002	;#223
-	CALL code_03F	;#225
-	JP code_081	;#227
+	JP code_002
+	CALL code_03F
+	JP code_081
 code_229:
 	LD ST, V1
 	LD V0, 30
 	LD DT, V0
-	CALL code_02F	;#22F
+	CALL delay
 	SKP V5
-	JP code_135	;#233
+	JP code_135
 	SE VA, 0
-	JP code_07F	;#237
-	JP code_000	;#239
+	JP code_07F
+	JP code_000
 	DB #20
 code_23C:
 	LD VA, 2
-	JP code_171	;#23E
+	JP code_171
 code_240:
 	LD VA, 4
-	JP code_171	;#242
+	JP code_171
 code_244:
 	LD VA, 1
-	JP code_171	;#246
+	JP code_171
 code_248:
 	LD VA, 3
-	JP code_171	;#24A
+	JP code_171
+	
+;*********************	
+; affichage intro
 code_24C:
+; ajout délais entre ligne
+	LD V0, 10
+	LD DT, 10
+	LD V0, DT
+	SE V0, 0
+	JP .-2
 	SCD 1
 code_24E:
 	DRW V5, V6, 1
 	ADD I, V1
 	ADD V5, 8
 	SE V5, 88
-	JP code_24E	;#256
-code_258:
+	JP code_24E
+code_258:  
 	LD V5, 40
 	SUB V3, V1
 	SE V3, 254
-	JP code_24C	;#25E
+	JP code_24C
 	LD VA, 1
-	JP code_027	;#262
+	JP code_027
 
-data_264:
+data_264: ; splash screen
 	DB #FE, #79, #99, #E7, #C7, #DB, #0E, #CD
 	DB #F3, #36, #6C, #DB, #1C, #CD, #E3, #36
 	DB #6C, #DB, #38, #CD, #B3, #36, #67, #DB
@@ -379,9 +396,9 @@ data_2A4:
 	DB #00, #40, #20, #00, #F0, #D0, #B0, #F0
 
 data_2AC:
-	DB #60, #F0, #F0, #60
+	DB #60, #F0, #F0, #60 ; croix
 data_2B0:
-	DB #F0, #90, #90, #F0
+	DB #F0, #90, #90, #F0 ; boite vide
 data_2B4:
 	DB #6E, #00, #88, #C2, #90, #18, #53, #41
 	DB #84, #2A, #15, #60, #E8, #52, #8C, #15
@@ -746,3 +763,6 @@ data_DC8:
 	DB #3F, #35, #43, #41, #31, #2C, #36, #4B
 	DB #46, #42, #1F, #48, #3F, #35, #39, #32
 	DB #3C, #3A, #34, #2E, #38, #38, #4B
+
+BCD:
+	DB 0,0,0

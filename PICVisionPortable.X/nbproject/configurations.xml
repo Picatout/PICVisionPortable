@@ -19,6 +19,9 @@
         <itemPath>games/LEM/lem.h</itemPath>
         <itemPath>games/SOKOBAN/sokoban.h</itemPath>
         <itemPath>games/game_info.h</itemPath>
+        <itemPath>games/MINES/mines.h</itemPath>
+        <itemPath>games/CAR/car.h</itemPath>
+        <itemPath>games/ANT/ant.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Hardware" projectFiles="true">
         <itemPath>Hardware/HardwareProfile.h</itemPath>
@@ -50,6 +53,9 @@
         <itemPath>games/BLINKY/blinky.c</itemPath>
         <itemPath>games/SOKOBAN/sokoban.c</itemPath>
         <itemPath>games/LEM/lem.c</itemPath>
+        <itemPath>games/MINES/mines.c</itemPath>
+        <itemPath>games/CAR/car.c</itemPath>
+        <itemPath>games/ANT/ant.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Hardware" projectFiles="true">
         <itemPath>Hardware/HardwareProfile.c</itemPath>

@@ -73,18 +73,23 @@
 
 //****** jeux intégrés ***********
 #include "games/BLINKY/blinky.h"
-#include "games/SOKOBAN/sokoban.h"
-#include "../tools/c8test.h"
+//#include "games/SOKOBAN/sokoban.h"
+//#include "../tools/c8test.h"
 #include "games/LEM/lem.h"
+#include "games/MINES/mines.h"
+#include "games//CAR/car.h"
+#include "games/ANT/ant.h"
 
-#define GAMES_COUNT (4)
+#define GAMES_COUNT (5)
 
 // jeux en mémoire flash
 const game_info_t flash_games[GAMES_COUNT]={
-    {"c8test",C8TEST_SIZE,c8test,NULL},
-    {"sokoban",SOKOBAN_SIZE,sokoban,(const char*)sokoban_info},
+//    {"c8test",C8TEST_SIZE,c8test,NULL},
+    {"mines",MINES_SIZE,mines,(const char*)mines_info},
     {"blinky",BLINKY_SIZE,blinky,(const char*)blinky_info},
-    {"LEM",LEM_SIZE,lem,lem_info}
+    {"LEM",LEM_SIZE,lem,lem_info},
+    {"CAR",CAR_SIZE,car,car_info},
+    {"ant",ANT_SIZE,ant,ant_info}
 };
 
 //********************************
@@ -254,14 +259,21 @@ void games_on_sdcard(){
 // mémoire flash
 void games_in_flash(){
 	uint16_t i,selected;
+        uint16_t frame_delay;
 
         for (i=0;i<GAMES_COUNT;i++){
             strcpy((char*)chip_prog+i*ENTRY_SIZE,flash_games[i].name);
         }
 	cls();
 	selected=select_file(GAMES_COUNT);
-        if (flash_games[selected].description){
-            text_scroller(flash_games[selected].description,2);
+        while (any_key());
+        if (flash_games[selected].description!=NULL){
+            cls();
+            select_font(FONT_ASCII);
+            set_cursor(0,0);
+            print(flash_games[selected].description);
+            frame_delay=frame_counter+40;
+            while (frame_delay>frame_counter);
         }
         memcpy(chip_prog,flash_games[selected].binary,flash_games[selected].size);
         cls();
@@ -299,13 +311,11 @@ void splash_screen(){
             }
 	}
 	wait_key_release();
-        text_scroller(credits,2);
+        text_scroller(credits,16);
         cls();
 }
 
 int main() {
-    uint32_t size;
-
     HardwareInit();
     LCDout_init();
     splash_screen();

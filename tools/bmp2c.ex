@@ -7,16 +7,15 @@ fo=open("splash.h","wb")
 printf(fo,"#ifndef SPLASH_\n")
 printf(fo,"#define SPLASH_\n\n")
 printf(fo,"#include <stdint.h>\n")
-printf(fo,"#include <avr/pgmspace.h>\n\n")
 printf(fo,"#define SPLASH_SIZE (1024)\n\n")
 printf(fo,"extern const uint8_t splash[SPLASH_SIZE];\n\n")
 printf(fo,"#endif\n")
 close(fo)
 fo=open("splash.c","wb")
 printf(fo,"#include \"splash.h\"\n\n")
-printf(fo,"PROGMEM const uint8_t splash[SPLASH_SIZE]={\n")
+printf(fo,"const uint8_t splash[SPLASH_SIZE]={\n")
 j=1
-fh=open("splash.bmp","rb")
+fh=open("screen.bmp","rb")
 for i=0 to 0x3d do c=getc(fh) end for
 c=getc(fh)
 while  c!=-1 do

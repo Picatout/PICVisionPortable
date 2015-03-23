@@ -1,54 +1,77 @@
+; sokoban
+; see sokoban.txt
+; Adapted to PICVisionPortable by jacques Deschenes 2015/02
+EQU UP 0		; VIP-2000 key 5
+EQU DOWN 1      ; VIP-2000 key 8
+EQU LEFT 2      ; VIP-2000 key 7
+EQU RIGHT 3     ; VIP-2000 key 9
+EQU SELECT 4    ; VIP-2000 key A
+EQU S_RIGHT 12  ; VIP-2000 key 0
+EQU NO_KEY 255
+
 code_000:
 	HIGH
-code_002:
+code_002:    
 	CALL code_01B
-code_004:
+; code ajouté ***
+	LD R, V2
+	LD I, KEYS
+	LD V2, [I]
+	LD VB, V0
+	LD VC, V1
+	LD VD, V2
+	LD V2, R
+;****************
+code_004: ; floor selection loop
 	LD VE, 5
-	CALL code_02F
-	SKNP VC
-	JP code_037
-	SKNP VD
-	JP code_07F
+	CALL delay
+	SKNP VC  ; LEFT
+	JP code_037  ; previous floor
+	SKNP VD  ; SELECT
+	JP code_07F ; play that floor
 	SNE VA, 50
 	JP code_004
-	SKNP VB
+	SKNP VB  ; RIGHT
 code_016:
-	CALL code_03F
+	CALL code_03F ; update floor number
 	JP code_004
-
+	
 data_01A:
 	DB #80
 code_01B:
 	CLS
-	LD I, data_288
-	LD VE, [I]
-	LD I, data_264
-	SNE VA, 0
+	LD I, idata  
+	LD VE, [I] ; V0=254, V1=1, V2=128, V3=6, V4=0, V5=0, V6=15, V7=7, V8=2, V9=2, VA=0, VB=9, VC=7, VD=10, VE=5
+	LD I, splash_screen
+	SNE VA, 0 ; skip if floor not zero
 	JP code_258
 code_027:
-	CALL code_069
-	LD F, V6
-	DRW V9, V9, 5
+	CALL code_069 ; display floor number
+	LD F, V6   ; V6=15 letter 'F'
+	DRW V9, V9, 5  ; display letter F
 	RET
-code_02F:
+delay:
 	LD V1, DT
 	SE V1, 0
-	JP code_02F
+	JP delay
 	RET
 code_037:
 	SNE VA, 1
 	JP code_004
 	LD VE, 8
 	JP code_016
+; update floor number
+; modify code at data_0F3
 code_03F:
-	LD DT, V7
+	LD V0, 10  ; ajouté
+	LD DT, V0  ;modifié  LD DT, V7
 	LD V0, 1
-	LD ST, V0
+	LD ST, V0 ; short beep
 	LD I, data_DC8
-	ADD I, VA
-	LD V5, [I]
-	LD I, data_0F3
-	LD V1, [I]
+	ADD I, VA  ; add grid number to I
+	LD V5, [I] ; grid parameters
+	LD I, data_0F3 
+	LD V1, [I]  ; LD I, floors
 	SNE VE, 5
 	JP code_05F
 	SUB V1, V3
@@ -62,24 +85,37 @@ code_05F:
 	ADD V0, VF
 	ADD VA, 1
 code_065:
-	LD [I], V1
-	CALL code_06D
+	LD [I], V1  ; modify code at data_0F3
+	CALL code_06D ; update floor display
+	
+; convert grid_no to BCD	
 code_069:
-	LD I, data_24C
+	LD I, BCD
 	LD B, VA
 code_06D:
-	LD I, data_24C
+	LD I, BCD
 	LD V2, [I]
 	LD F, V1
 	DRW VD, V9, 5
 	LD F, V2
 	DRW V6, V9, 5
-	LD I, data_288
-	LD [I], VA
+	LD I, idata
+	LD [I], VA  ; store V0-VA
 	RET
+;********************	
+; play current floor
+;********************
+; V6 sokoban coordonnée X
+; V7 sokoban coordonneé Y
+; V8 ? nombre de boites dans l'entrepôt
+; V9 ? nombre de boites à déplacer
+; VA no de plancher  1-50
+; VB ? 
+; VC ?
+; VD ?
 code_07F:
-	CALL code_01B
-code_081:
+	CALL code_01B ; erase screen and display floor number
+code_081: 
 	LD VD, 0
 	LD VC, 0
 	LD V2, 2
@@ -128,8 +164,9 @@ code_0CF:
 	LD I, data_285
 	LD [I], V7
 	JP code_0A3
+; draw floor	
 code_0D5:
-	CALL code_0E5
+	CALL code_0E5 ; VE=VB high nibble 
 	ADD VE, 5
 	SHL VE
 	SHL VE
@@ -137,7 +174,7 @@ code_0D5:
 	SUBN V6, V1
 	SHR V6
 	RET
-code_0E5:
+code_0E5: ; VE=VB high nibble and VB=VB<<4
 	LD VE, 0
 	CALL code_101
 	CALL code_101
@@ -146,7 +183,8 @@ code_0E5:
 	RET
 code_0F1:
 	LD VD, 8
-	LD I, data_2B4
+data_0F3:	
+	LD I, floors
 	ADD I, VC
 	LD V0, [I]
 	LD VB, V0
@@ -184,26 +222,28 @@ code_12D:
 	LD V7, [I]
 	LD VA, 0
 code_133:
-	CALL code_02F
-code_135:
+	LD V1, 10
+	LD DT, V1
+	CALL delay
+code_135: ; lecture des boutons
 	LD VB, 1
-	LD I, data_293
+	LD I, keys
 	LD V5, [I]
 	SNE  V8, V9
-	JP code_217
+	JP code_217  ; plancher complété
 	SKNP V1
-	JP code_23C
+	JP code_23C  ; LEFT
 	SKNP V0
-	JP code_240
+	JP code_240  ; RIGHT
 	SKNP V3
-	JP code_244
+	JP code_244  ; UP
 	SKNP V4
-	JP code_248
-	SKNP V5
-	JP code_229
-	SKP V2
-	JP code_135
-	SNE VC, 0
+	JP code_248  ; DOWN
+	SKNP V5      
+	JP code_229  ; S_RIGHT
+	SKP V2       
+	JP code_135  
+	SNE VC, 0    ; SELECT
 	JP code_135
 	LD VB, 0
 	ADD VC, 255
@@ -216,11 +256,17 @@ code_135:
 	ADD I, VD
 	LD V0, [I]
 	LD VA, V0
-code_171:
-	LD DT, V4
-	AND V1, VA
-	LD I, data_293
-	ADD I, V1
+code_171: ; VA=direction 1 UP, 2 LEFT, 3 DOWN, 4 RIGHT
+; code original
+;	LD DT, V0
+;	AND V1, VA  
+;	LD I, data_293
+; code modifié
+	LD V0, 8
+	LD DT, V0
+	LD I, offset
+;***************	
+	ADD I, VA
 	LD V5, [I]
 	SNE VB, 0
 	CALL code_1F3
@@ -299,12 +345,12 @@ code_1F3:
 	SUBN V4, VB
 	LD [I], V5
 	RET
-code_207:
+code_207: ; test de collision
 	DRW V0, V1, 2
 	LD VE, VF
 	DRW V0, V1, 2
 	RET
-code_20F:
+code_20F: ; test de collision
 	DRW V2, V3, 2
 	LD VE, VF
 	DRW V2, V3, 2
@@ -313,36 +359,45 @@ code_217:
 	LD ST, V3
 	LD V0, 50
 	LD DT, V0
-	CALL code_02F
+	CALL delay
 	CALL code_01B
 	SNE VA, 50
 	JP code_002
 	CALL code_03F
 	JP code_081
 code_229:
-	LD ST, V1
+	LD V0, 7  ; ajout
+	LD ST, V0 ; modifié  LD ST, V1
 	LD V0, 30
 	LD DT, V0
-	CALL code_02F
+	CALL delay
 	SKP V5
 	JP code_135
 	SE VA, 0
 	JP code_07F
 	JP code_000
 	DB #20
-code_23C:
-	LD VA, 2
+code_23C:  ; LEFT
+	LD VA, 2     
 	JP code_171
-code_240:
+code_240:  ; RIGHT
 	LD VA, 4
 	JP code_171
-code_244:
+code_244: ; UP
 	LD VA, 1
 	JP code_171
-code_248:
+code_248: ; DOWN
 	LD VA, 3
 	JP code_171
+; intro screen	
+; modifie V3,V5,VA,VF
 code_24C:
+; ajout délais ****
+	LD DT, VD  ; VD=10
+	LD VF, DT
+	SE VF, 0
+	JP .-2
+; *****************	
 	SCD 1
 code_24E:
 	DRW V5, V6, 1
@@ -358,7 +413,8 @@ code_258:
 	LD VA, 1
 	JP code_027
 
-data_264:
+	
+splash_screen:
 	DB #FE, #79, #99, #E7, #C7, #DB, #0E, #CD
 	DB #F3, #36, #6C, #DB, #1C, #CD, #E3, #36
 	DB #6C, #DB, #38, #CD, #B3, #36, #67, #DB
@@ -366,7 +422,7 @@ data_264:
 	DB #81
 data_285:
 	DB #E6, #07, #9E
-data_288:
+idata:
 	DB #FE, #01, #80, #06, #00, #00, #0F, #07
 	DB #02, #02, #00
 data_293:
@@ -382,7 +438,7 @@ data_2AC:
 	DB #60, #F0, #F0, #60
 data_2B0:
 	DB #F0, #90, #90, #F0
-data_2B4:
+floors:
 	DB #6E, #00, #88, #C2, #90, #18, #53, #41
 	DB #84, #2A, #15, #60, #E8, #52, #8C, #15
 	DB #51, #14, #40, #89, #80, #8A, #44, #43
@@ -746,3 +802,22 @@ data_DC8:
 	DB #3F, #35, #43, #41, #31, #2C, #36, #4B
 	DB #46, #42, #1F, #48, #3F, #35, #39, #32
 	DB #3C, #3A, #34, #2E, #38, #38, #4B
+keys:
+	DB RIGHT
+	DB LEFT
+	DB SELECT 
+	DB UP
+	DB DOWN
+	DB S_RIGHT	
+offset:	
+	DB  #00, #00, #00, #00, #00, #00, #FC, #00, #04, #00
+	
+;data_0F3:
+;	DB #A2,#B4
+data_23A:
+	DB #00, #20
+data_24C:
+	DB #00, #01
+BCD:
+	DB 0,0,0
+	

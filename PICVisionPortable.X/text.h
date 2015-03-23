@@ -61,7 +61,7 @@ extern const uint8_t font_6x8[FONT_SIZE*CHAR_HEIGHT];
 // détermine la police active
 void select_font(uint8_t font_id);
 //imprime un caractère à l'écran
-void put_char(uint8_t c);
+void put_char(char c);
 //positionne le curseur texte à l'écran
 void set_cursor(uint8_t x, uint8_t y);
 // retourne la position du curseur texte

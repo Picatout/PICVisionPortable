@@ -211,7 +211,7 @@ void new_line(){
 
 }
 
-void put_char(uint8_t c){
+void put_char(char c){
 	switch(font){
 	case FONT_SHEX:	
 		if (c<16){
@@ -310,25 +310,22 @@ void text_scroller(const char *text, uint8_t speed){
 	select_font(FONT_ASCII);
 	c=*text++;
 	while (c){
-		set_cursor(0,7*CHAR_HEIGHT);
-		while (c && c!='\n'){
-			put_char(c);
-			c=*text++;
-                if (any_key()) goto break_out;
-		}
-		for (j=0;j<CHAR_HEIGHT;j++){
-			frame_delay=frame_counter+speed;
-			while(frame_delay>frame_counter);
-			scroll_up(1);
-                if (any_key()) goto break_out;
-		}
-		c=*text++;
+            set_cursor(0,7*CHAR_HEIGHT);
+            while (c && c!='\n'){
+                    put_char(c);
+                    c=*text++;
+            if (any_key()) goto break_out;
+            }
+            frame_delay=frame_counter+speed;
+            while(frame_delay>frame_counter);
+            scroll_up(CHAR_HEIGHT);
+            c=*text++;
 	}//while
-	for (c=0;c<7*CHAR_HEIGHT;c++){
-		frame_delay=frame_counter+speed;
-		while(frame_delay>frame_counter);
-		scroll_up(1);
-                if (any_key()) goto break_out;
+	for (c=0;c<7*CHAR_HEIGHT;c+=7){
+            frame_delay=frame_counter+speed;
+            while(frame_delay>frame_counter);
+            scroll_up(7);
+            if (any_key()) goto break_out;
 	}//for
 break_out:	
 	cls();

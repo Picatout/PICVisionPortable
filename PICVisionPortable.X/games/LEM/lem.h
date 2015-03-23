@@ -25,6 +25,6 @@
 
 extern const uint8_t lem[LEM_SIZE];
 
-extern const uint8_t lem_info[];
+extern const char lem_info[];
 
 #endif
