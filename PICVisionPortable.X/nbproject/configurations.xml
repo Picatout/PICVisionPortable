@@ -22,6 +22,8 @@
         <itemPath>games/MINES/mines.h</itemPath>
         <itemPath>games/CAR/car.h</itemPath>
         <itemPath>games/ANT/ant.h</itemPath>
+        <itemPath>games/WORM/worm.h</itemPath>
+        <itemPath>games/ALIEN/alien.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Hardware" projectFiles="true">
         <itemPath>Hardware/HardwareProfile.h</itemPath>
@@ -56,6 +58,8 @@
         <itemPath>games/MINES/mines.c</itemPath>
         <itemPath>games/CAR/car.c</itemPath>
         <itemPath>games/ANT/ant.c</itemPath>
+        <itemPath>games/WORM/worm.c</itemPath>
+        <itemPath>games/ALIEN/alien.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Hardware" projectFiles="true">
         <itemPath>Hardware/HardwareProfile.c</itemPath>

@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=FAT/byteordering.c FAT/fat.c FAT/partition.c FAT/sd_raw.c games/BLINKY/blinky.c games/SOKOBAN/sokoban.c games/LEM/lem.c Hardware/HardwareProfile.c Hardware/LCDout.c main.c chip8.c text.c tone.c display.c keypad.c splash.c filesys.c ../tools/c8test.c games/MINES/mines.c games/CAR/car.c games/ANT/ant.c
+SOURCEFILES_QUOTED_IF_SPACED=FAT/byteordering.c FAT/fat.c FAT/partition.c FAT/sd_raw.c games/BLINKY/blinky.c games/SOKOBAN/sokoban.c games/LEM/lem.c Hardware/HardwareProfile.c Hardware/LCDout.c main.c chip8.c text.c tone.c display.c keypad.c splash.c filesys.c ../tools/c8test.c games/MINES/mines.c games/CAR/car.c games/ANT/ant.c games/WORM/worm.c games/ALIEN/alien.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/FAT/byteordering.o ${OBJECTDIR}/FAT/fat.o ${OBJECTDIR}/FAT/partition.o ${OBJECTDIR}/FAT/sd_raw.o ${OBJECTDIR}/games/BLINKY/blinky.o ${OBJECTDIR}/games/SOKOBAN/sokoban.o ${OBJECTDIR}/games/LEM/lem.o ${OBJECTDIR}/Hardware/HardwareProfile.o ${OBJECTDIR}/Hardware/LCDout.o ${OBJECTDIR}/main.o ${OBJECTDIR}/chip8.o ${OBJECTDIR}/text.o ${OBJECTDIR}/tone.o ${OBJECTDIR}/display.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/splash.o ${OBJECTDIR}/filesys.o ${OBJECTDIR}/_ext/2103491380/c8test.o ${OBJECTDIR}/games/MINES/mines.o ${OBJECTDIR}/games/CAR/car.o ${OBJECTDIR}/games/ANT/ant.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/FAT/byteordering.o.d ${OBJECTDIR}/FAT/fat.o.d ${OBJECTDIR}/FAT/partition.o.d ${OBJECTDIR}/FAT/sd_raw.o.d ${OBJECTDIR}/games/BLINKY/blinky.o.d ${OBJECTDIR}/games/SOKOBAN/sokoban.o.d ${OBJECTDIR}/games/LEM/lem.o.d ${OBJECTDIR}/Hardware/HardwareProfile.o.d ${OBJECTDIR}/Hardware/LCDout.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/chip8.o.d ${OBJECTDIR}/text.o.d ${OBJECTDIR}/tone.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/keypad.o.d ${OBJECTDIR}/splash.o.d ${OBJECTDIR}/filesys.o.d ${OBJECTDIR}/_ext/2103491380/c8test.o.d ${OBJECTDIR}/games/MINES/mines.o.d ${OBJECTDIR}/games/CAR/car.o.d ${OBJECTDIR}/games/ANT/ant.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/FAT/byteordering.o ${OBJECTDIR}/FAT/fat.o ${OBJECTDIR}/FAT/partition.o ${OBJECTDIR}/FAT/sd_raw.o ${OBJECTDIR}/games/BLINKY/blinky.o ${OBJECTDIR}/games/SOKOBAN/sokoban.o ${OBJECTDIR}/games/LEM/lem.o ${OBJECTDIR}/Hardware/HardwareProfile.o ${OBJECTDIR}/Hardware/LCDout.o ${OBJECTDIR}/main.o ${OBJECTDIR}/chip8.o ${OBJECTDIR}/text.o ${OBJECTDIR}/tone.o ${OBJECTDIR}/display.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/splash.o ${OBJECTDIR}/filesys.o ${OBJECTDIR}/_ext/2103491380/c8test.o ${OBJECTDIR}/games/MINES/mines.o ${OBJECTDIR}/games/CAR/car.o ${OBJECTDIR}/games/ANT/ant.o ${OBJECTDIR}/games/WORM/worm.o ${OBJECTDIR}/games/ALIEN/alien.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/FAT/byteordering.o.d ${OBJECTDIR}/FAT/fat.o.d ${OBJECTDIR}/FAT/partition.o.d ${OBJECTDIR}/FAT/sd_raw.o.d ${OBJECTDIR}/games/BLINKY/blinky.o.d ${OBJECTDIR}/games/SOKOBAN/sokoban.o.d ${OBJECTDIR}/games/LEM/lem.o.d ${OBJECTDIR}/Hardware/HardwareProfile.o.d ${OBJECTDIR}/Hardware/LCDout.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/chip8.o.d ${OBJECTDIR}/text.o.d ${OBJECTDIR}/tone.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/keypad.o.d ${OBJECTDIR}/splash.o.d ${OBJECTDIR}/filesys.o.d ${OBJECTDIR}/_ext/2103491380/c8test.o.d ${OBJECTDIR}/games/MINES/mines.o.d ${OBJECTDIR}/games/CAR/car.o.d ${OBJECTDIR}/games/ANT/ant.o.d ${OBJECTDIR}/games/WORM/worm.o.d ${OBJECTDIR}/games/ALIEN/alien.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/FAT/byteordering.o ${OBJECTDIR}/FAT/fat.o ${OBJECTDIR}/FAT/partition.o ${OBJECTDIR}/FAT/sd_raw.o ${OBJECTDIR}/games/BLINKY/blinky.o ${OBJECTDIR}/games/SOKOBAN/sokoban.o ${OBJECTDIR}/games/LEM/lem.o ${OBJECTDIR}/Hardware/HardwareProfile.o ${OBJECTDIR}/Hardware/LCDout.o ${OBJECTDIR}/main.o ${OBJECTDIR}/chip8.o ${OBJECTDIR}/text.o ${OBJECTDIR}/tone.o ${OBJECTDIR}/display.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/splash.o ${OBJECTDIR}/filesys.o ${OBJECTDIR}/_ext/2103491380/c8test.o ${OBJECTDIR}/games/MINES/mines.o ${OBJECTDIR}/games/CAR/car.o ${OBJECTDIR}/games/ANT/ant.o
+OBJECTFILES=${OBJECTDIR}/FAT/byteordering.o ${OBJECTDIR}/FAT/fat.o ${OBJECTDIR}/FAT/partition.o ${OBJECTDIR}/FAT/sd_raw.o ${OBJECTDIR}/games/BLINKY/blinky.o ${OBJECTDIR}/games/SOKOBAN/sokoban.o ${OBJECTDIR}/games/LEM/lem.o ${OBJECTDIR}/Hardware/HardwareProfile.o ${OBJECTDIR}/Hardware/LCDout.o ${OBJECTDIR}/main.o ${OBJECTDIR}/chip8.o ${OBJECTDIR}/text.o ${OBJECTDIR}/tone.o ${OBJECTDIR}/display.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/splash.o ${OBJECTDIR}/filesys.o ${OBJECTDIR}/_ext/2103491380/c8test.o ${OBJECTDIR}/games/MINES/mines.o ${OBJECTDIR}/games/CAR/car.o ${OBJECTDIR}/games/ANT/ant.o ${OBJECTDIR}/games/WORM/worm.o ${OBJECTDIR}/games/ALIEN/alien.o
 
 # Source Files
-SOURCEFILES=FAT/byteordering.c FAT/fat.c FAT/partition.c FAT/sd_raw.c games/BLINKY/blinky.c games/SOKOBAN/sokoban.c games/LEM/lem.c Hardware/HardwareProfile.c Hardware/LCDout.c main.c chip8.c text.c tone.c display.c keypad.c splash.c filesys.c ../tools/c8test.c games/MINES/mines.c games/CAR/car.c games/ANT/ant.c
+SOURCEFILES=FAT/byteordering.c FAT/fat.c FAT/partition.c FAT/sd_raw.c games/BLINKY/blinky.c games/SOKOBAN/sokoban.c games/LEM/lem.c Hardware/HardwareProfile.c Hardware/LCDout.c main.c chip8.c text.c tone.c display.c keypad.c splash.c filesys.c ../tools/c8test.c games/MINES/mines.c games/CAR/car.c games/ANT/ant.c games/WORM/worm.c games/ALIEN/alien.c
 
 
 CFLAGS=
@@ -229,6 +229,20 @@ ${OBJECTDIR}/games/ANT/ant.o: games/ANT/ant.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  games/ANT/ant.c  -o ${OBJECTDIR}/games/ANT/ant.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/games/ANT/ant.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D_CHIPCON_ -D__PIC24__ -O1 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/games/ANT/ant.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/games/WORM/worm.o: games/WORM/worm.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/games/WORM" 
+	@${RM} ${OBJECTDIR}/games/WORM/worm.o.d 
+	@${RM} ${OBJECTDIR}/games/WORM/worm.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  games/WORM/worm.c  -o ${OBJECTDIR}/games/WORM/worm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/games/WORM/worm.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D_CHIPCON_ -D__PIC24__ -O1 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/games/WORM/worm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/games/ALIEN/alien.o: games/ALIEN/alien.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/games/ALIEN" 
+	@${RM} ${OBJECTDIR}/games/ALIEN/alien.o.d 
+	@${RM} ${OBJECTDIR}/games/ALIEN/alien.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  games/ALIEN/alien.c  -o ${OBJECTDIR}/games/ALIEN/alien.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/games/ALIEN/alien.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D_CHIPCON_ -D__PIC24__ -O1 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/games/ALIEN/alien.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/FAT/byteordering.o: FAT/byteordering.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/FAT" 
@@ -376,6 +390,20 @@ ${OBJECTDIR}/games/ANT/ant.o: games/ANT/ant.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/games/ANT/ant.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  games/ANT/ant.c  -o ${OBJECTDIR}/games/ANT/ant.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/games/ANT/ant.o.d"        -g -omf=elf -D_CHIPCON_ -D__PIC24__ -O1 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/games/ANT/ant.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/games/WORM/worm.o: games/WORM/worm.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/games/WORM" 
+	@${RM} ${OBJECTDIR}/games/WORM/worm.o.d 
+	@${RM} ${OBJECTDIR}/games/WORM/worm.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  games/WORM/worm.c  -o ${OBJECTDIR}/games/WORM/worm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/games/WORM/worm.o.d"        -g -omf=elf -D_CHIPCON_ -D__PIC24__ -O1 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/games/WORM/worm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/games/ALIEN/alien.o: games/ALIEN/alien.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/games/ALIEN" 
+	@${RM} ${OBJECTDIR}/games/ALIEN/alien.o.d 
+	@${RM} ${OBJECTDIR}/games/ALIEN/alien.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  games/ALIEN/alien.c  -o ${OBJECTDIR}/games/ALIEN/alien.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/games/ALIEN/alien.o.d"        -g -omf=elf -D_CHIPCON_ -D__PIC24__ -O1 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/games/ALIEN/alien.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

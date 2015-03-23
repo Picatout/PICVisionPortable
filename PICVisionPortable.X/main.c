@@ -78,18 +78,20 @@
 #include "games/LEM/lem.h"
 #include "games/MINES/mines.h"
 #include "games//CAR/car.h"
-#include "games/ANT/ant.h"
+#include "games/WORM/worm.h"
+#include "games//ALIEN/alien.h"
 
-#define GAMES_COUNT (5)
+#define GAMES_COUNT (6)
 
 // jeux en mémoire flash
 const game_info_t flash_games[GAMES_COUNT]={
 //    {"c8test",C8TEST_SIZE,c8test,NULL},
-    {"mines",MINES_SIZE,mines,(const char*)mines_info},
-    {"blinky",BLINKY_SIZE,blinky,(const char*)blinky_info},
+    {"MINES",MINES_SIZE,mines,NULL},
+    {"BLINKY",BLINKY_SIZE,blinky,(const char*)blinky_info},
     {"LEM",LEM_SIZE,lem,lem_info},
     {"CAR",CAR_SIZE,car,car_info},
-    {"ant",ANT_SIZE,ant,ant_info}
+    {"WORM",WORM_SIZE,worm,worm_info},
+    {"ALIEN",ALIEN_SIZE,alien,NULL}
 };
 
 //********************************

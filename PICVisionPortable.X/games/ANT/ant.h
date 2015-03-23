@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define ANT_SIZE (3200)
+#define ANT_SIZE (3196)
 
 extern const uint8_t ant[ANT_SIZE];
 

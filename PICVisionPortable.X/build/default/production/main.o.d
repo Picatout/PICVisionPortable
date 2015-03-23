@@ -22,5 +22,6 @@ FAT/sd_raw.h  \
 games/LEM/lem.h  \
 games/MINES/mines.h  \
  games//CAR/car.h  \
-games/ANT/ant.h  \
+games/WORM/worm.h  \
+games//ALIEN/alien.h  \
 splash.h 

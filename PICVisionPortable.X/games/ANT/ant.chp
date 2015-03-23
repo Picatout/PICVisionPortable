@@ -14,16 +14,16 @@ code_00E:
 	LD V0, 254
 	LD V1, 0
 	LD I, data_810
-	LD [I], V1
-	CALL code_04C
-	CALL code_15C
+	LD [I], V1		; save V0,V1
+	CALL draw_floor   ; draw start screen, 
+	CALL draw_start_ant   ; draw ant at start position
 	LD V5, 0
 	LD VA, 1
 	LD VB, 0
 	LD VD, 0
 	LD VE, 0
 code_026:
-	CALL code_168
+	CALL code_168  ;
 	SE VF, 0
 	JP code_1C6
 	SNE V5, 253
@@ -41,62 +41,67 @@ code_030:
 	JP code_42C
 	LD V0, 2
 	SE V7, 204
-	CALL code_2C6
+	CALL delay
 	JP code_026
-code_04C:
+; **** draw_floor ****
+; draw start floor	
+; modify: I,V0,V1,VE
+draw_floor:
 	LD VE, 0
-code_04E:
-	LD I, data_5F2
+bw_04E:
+	LD I, array_32 
 	ADD I, VE
 	LD V0, 46
-	LD [I], V0
+	LD [I], V0  ; array_32[0]=46
 	ADD V0, 9
 	LD V1, 124
 	LD I, data_8E8
 	DRW V1, V0, 4
 	LD V0, 1
-	CALL code_2C0
+	CALL beep 
 	LD V0, 2
-	CALL code_2C6
+	CALL delay
 	SE VE, 31
 	SCL
 	ADD VE, 1
 	SE VE, 32
-	JP code_04E
+	JP bw_04E
 	LD V0, 4
 	LD V1, 4
 	LD I, data_8F8  ; right arrow big sprite
 	DRW V0, V1, 0
 	RET
+; **** ****
+; modify I,V0,V1,V2,VB,VE	
 code_07A:
 	SNE VB, 0
 	CALL code_0E6
 	ADD VB, 255
 	LD I, data_812
 	LD V1, [I]
-	LD I, data_5F2
+	LD I, array_32
 	ADD I, VE
 	LD [I], V0
 	ADD VE, 1
 	LD V2, 31
 	AND VE, V2
 	SNE V1, 254
-	JP code_0A4
+	JP fw_0A4
 	SNE V1, 255
-	JP code_0AE
+	JP fw_0AE
 	ADD V0, 9
 	LD V2, 124
 	LD I, data_8E8
 	ADD I, VD
 	DRW V2, V0, 4
 	RET
-code_0A4:
+fw_0A4:
 	ADD V0, 7
 	LD V1, 124
 	LD I, data_938
 	DRW V1, V0, 4
 	RET
-code_0AE:
+fw_0AE:
 	LD V1, 0
 	SNE VB, 2
 	LD V1, 8
@@ -104,7 +109,7 @@ code_0AE:
 	LD V1, 16
 	SNE VB, 0
 	LD V1, 24
-	LD I, data_918
+	LD I, data_918 ; 0x930
 	ADD I, V1
 	LD V1, 124
 	ADD V0, 1
@@ -175,16 +180,16 @@ code_12C:
 	LD I, data_9DC
 	DRW V0, V4, 0
 	LD V0, 4
-	CALL code_2C0
+	CALL beep
 	LD V3, 96
 	LD I, data_B5C
 	DRW V3, V4, 0
 	LD V0, 2
-	CALL code_2C0
+	CALL beep
 	LD V0, 2
-	CALL code_2C6
+	CALL delay
 	LD V0, 1
-	CALL code_2C0
+	CALL beep
 	LD V0, 112
 	LD I, data_9DC
 	DRW V0, V4, 0
@@ -192,17 +197,20 @@ code_12C:
 code_158:
 	LD VB, 1
 	RET
-code_15C:
+; **** draw_ant_start ****
+; draw ant pointing right at start position
+; modify V6, V8, VC 
+draw_start_ant: 
 	LD V6, 0
 	LD V8, 46
 	LD VC, 0
 	LD I, data_868
-	DRW V6, V8, 0
+	DRW V6, V8, 0 
 	RET
-code_168:
+code_168:	; 
 	LD V7, 0
-	CALL code_22E
-	CALL code_1DE
+	CALL code_22E	;
+	CALL code_1DE	;
 	LD V2, VC
 	LD V0, RIGHT
 	SKNP V0
@@ -253,14 +261,14 @@ code_1C6:
 code_1C8:
 	DRW V6, V8, 0
 	LD V0, 2
-	CALL code_2C0
+	CALL beep
 	LD V0, 2
-	CALL code_2C6
+	CALL delay
 	ADD V1, 1
 	SE V1, 7
 	JP code_1C8
 	LD V0, 30
-	CALL code_2C6
+	CALL delay
 	EXIT
 code_1DE:
 	LD V0, UP
@@ -281,7 +289,7 @@ code_1DE:
 	RET
 code_1FE:
 	LD V0, 2
-	CALL code_2C0
+	CALL beep
 	LD V0, V8
 	ADD V0, 236
 	LD I, data_80E
@@ -307,7 +315,7 @@ code_228:
 	LD VA, 0
 	LD V9, 254
 	RET
-code_22E:
+code_22E:	;
 	SNE VA, 2
 	RET
 	LD V0, 4
@@ -326,13 +334,13 @@ code_22E:
 	SNE V9, 4
 	LD VA, 0
 	RET
-code_252:
+code_252:	;
 	SHR V0
 	SHR V0
 	ADD V0, VE
 	LD V1, 31
 	AND V0, V1
-	LD I, data_5F2
+	LD I, array_32
 	ADD I, V0
 	LD V0, [I]
 	LD V1, V0
@@ -386,17 +394,21 @@ code_2B2:
 	SNE VF, 0
 	LD V9, 252
 	RET
-code_2C0:
+; **** beep ****
+; use V0	
+beep: 
 	LD ST, V0
 	SHL V0
-	;JP code_2C6
+	;JP delay
 	LD V0, 10
-code_2C6:
-	LD DT, V0
+; **** delay ****
+; use V0
 delay:
+	LD DT, V0
+code_2C8:
 	LD V0, DT
 	SE V0, 0
-	JP delay
+	JP code_2C8
 	RET
 code_2D0:
 	CALL code_2E2
@@ -411,7 +423,7 @@ code_2D4:
 	JP code_2D4
 code_2E2:
 	LD V0, 1
-	CALL code_2C0
+	CALL beep
 	LD I, data_868
 	ADD I, VC
 	DRW V6, V8, 0
@@ -461,7 +473,7 @@ code_33C:
 	ADD VD, 4
 code_33E:
 	SCL
-	LD I, data_5F2
+	LD I, array_32
 	ADD I, VE
 	LD V0, 42
 	LD [I], V0
@@ -471,9 +483,9 @@ code_33E:
 	ADD I, VD
 	DRW V1, V0, 4
 	LD V0, 1
-	CALL code_2C0
+	CALL beep
 	LD V0, 2
-	CALL code_2C6
+	CALL delay
 	ADD VE, 1
 	SNE VE, 32
 	LD VE, 0
@@ -603,7 +615,7 @@ code_434:
 	JP code_5D6
 	CALL code_446
 	LD V0, 3
-	CALL code_2C6
+	CALL delay
 	JP code_434
 code_446:
 	SNE VD, 0
@@ -694,7 +706,7 @@ code_4D0:
 	LD V5, V2
 	LD V0, 1
 	SNE V5, 32
-	CALL code_2C0
+	CALL beep
 	ADD VB, 3
 	SE VB, 30
 	RET
@@ -714,7 +726,7 @@ code_4F6:
 	LD V5, V2
 	LD V0, 1
 	SNE V5, 32
-	CALL code_2C0
+	CALL beep
 	ADD VB, 3
 	SE VB, 30
 	RET
@@ -725,9 +737,9 @@ code_51C:
 	LD I, data_B5C
 	DRW V5, V4, 0
 	LD V0, 1
-	CALL code_2C0
+	CALL beep
 	LD V0, 1
-	CALL code_2C0
+	CALL beep
 	RET
 code_52E:
 	LD V0, V5
@@ -774,7 +786,7 @@ code_572:
 	RET
 	LD V0, 2
 	SNE VA, 1
-	CALL code_2C0
+	CALL beep
 	LD VA, 2
 	LD V9, 252
 	SE V8, 26
@@ -827,19 +839,19 @@ code_5D6:
 	LD V0, 1
 	LD R, V0
 	LD V0, 2
-	CALL code_2C0
-	CALL code_2C6
+	CALL beep
+	CALL delay
 	LD V0, 4
-	CALL code_2C0
-	CALL code_2C6
+	CALL beep
+	CALL delay
 	LD V0, 8
-	CALL code_2C0
+	CALL beep
 	LD V0, 30
-	CALL code_2C6
+	CALL delay
 	CLS
 	EXIT
 
-data_5F2:
+array_32: ; array[32]
 	DB #00, #00, #00, #00, #00, #00, #00, #00
 	DB #00, #00, #00, #00, #00, #00, #00, #00
 	DB #00, #00, #00, #00, #00, #00, #00, #00
@@ -911,13 +923,13 @@ data_710:
 	DB #2E, #FF, #2A, #04, #32, #FE, #2E, #03
 	DB #2E, #FD, #2E, #FF, #1A, #04, #1E, #FE
 	DB #1A, #04, #2E, #22, #2E, #F9
-data_80E:
+data_80E: ; variables
 	DB #00, #00
-data_810:
+data_810: ; variables
 	DB #FE, #00
-data_812:
+data_812: ; variables
 	DB #00, #00
-data_814:
+data_814:  ; variables
 	DB #00, #00, #00, #00
 data_818:
 	DB #68, #27, #20, #64, #1D, #40, #60, #15
@@ -934,7 +946,7 @@ data_854:
 	DB #08, #00, #06, #08, #0A, #00, #02, #08
 	DB #04, #02, #0A, #08
 data_868:
-	DB #00, #11, #00, #0A, #78, #0E, #DD, #DB
+	DB #00, #11, #00, #0A, #78, #0E, #DD, #DB  ; ant pointing right
 	DB #BF, #FF, #FF, #EE, #7A, #E0, #A5, #50
 	DB #A5, #50, #00, #00, #00, #00, #00, #00
 	DB #00, #00, #00, #00, #00, #00, #00, #00
@@ -942,7 +954,7 @@ data_868:
 	DB #BF, #FF, #FF, #EE, #39, #F0, #52, #A8
 	DB #52, #A8, #00, #00, #00, #00, #00, #00
 	DB #00, #00, #00, #00, #00, #00, #00, #00
-	DB #88, #00, #50, #00, #70, #1E, #DB, #BB
+	DB #88, #00, #50, #00, #70, #1E, #DB, #BB  ; ant pointing left
 	DB #FF, #FD, #77, #FF, #07, #5E, #0A, #A5
 	DB #0A, #A5, #00, #00, #00, #00, #00, #00
 	DB #00, #00, #00, #00, #00, #00, #00, #00
@@ -964,8 +976,9 @@ data_8F8: ; right arrow
 data_918: ; 
 	DB #F0, #80, #B0, #A0, #B0, #A0, #80, #80
 	DB #F0, #00, #10, #A0, #30, #A0, #00, #00
-	DB #F0, #00, #20, #A0, #A0, #A0, #00, #00
-	DB #F0, #10, #D0, #B0, #B0, #D0, #10, #10
+	DB #F0, #00, #20, #A0, #A0, #A0, #00, #00 
+	DB #F0, #10, #D0, #B0, #B0, #D0, #10, #10 ; 0x930
+	
 
 data_938:
 	DB #20, #30, #70, #F0
