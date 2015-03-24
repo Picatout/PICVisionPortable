@@ -35,7 +35,7 @@ EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title "CHIPCON portable"
+Title "PICVisionPortable"
 Date "26 jan 2015"
 Rev ""
 Comp ""
@@ -354,12 +354,12 @@ $EndComp
 $Comp
 L R R18
 U 1 1 54BFF69E
-P 7750 2000
-F 0 "R18" V 7830 2000 50  0000 C CNN
-F 1 "10K" V 7750 2000 50  0000 C CNN
-F 2 "~" H 7750 2000 60  0000 C CNN
-F 3 "~" H 7750 2000 60  0000 C CNN
-	1    7750 2000
+P 7900 2000
+F 0 "R18" V 7980 2000 50  0000 C CNN
+F 1 "10K" V 7900 2000 50  0000 C CNN
+F 2 "~" H 7900 2000 60  0000 C CNN
+F 3 "~" H 7900 2000 60  0000 C CNN
+	1    7900 2000
 	1    0    0    -1  
 $EndComp
 Text GLabel 8300 1750 2    60   Input ~ 0
@@ -787,14 +787,9 @@ Wire Wire Line
 	8150 2250 8150 2300
 Connection ~ 8150 2300
 Wire Wire Line
-	7750 2250 7750 2500
-Connection ~ 7750 2500
-Wire Wire Line
 	7250 2300 7250 2200
 Wire Wire Line
 	7050 2500 7050 2200
-Wire Wire Line
-	8300 1750 7750 1750
 Wire Wire Line
 	3200 7350 3200 7450
 Wire Wire Line
@@ -1094,4 +1089,48 @@ Wire Wire Line
 Connection ~ 7400 5950
 Wire Wire Line
 	6000 6400 8000 6400
+$Comp
+L POT RV1
+U 1 1 551151C3
+P 8150 1400
+F 0 "RV1" H 8150 1300 50  0000 C CNN
+F 1 "10K" H 8150 1400 50  0000 C CNN
+F 2 "" H 8150 1400 60  0000 C CNN
+F 3 "" H 8150 1400 60  0000 C CNN
+	1    8150 1400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8150 1650 8150 1750
+Connection ~ 8150 1750
+$Comp
+L GND #PWR15
+U 1 1 55115405
+P 8150 1100
+F 0 "#PWR15" H 8150 1100 30  0001 C CNN
+F 1 "GND" H 8150 1030 30  0001 C CNN
+F 2 "~" H 8150 1100 60  0000 C CNN
+F 3 "~" H 8150 1100 60  0000 C CNN
+	1    8150 1100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8150 1100 8150 1150
+Wire Wire Line
+	7900 2250 7900 2500
+Connection ~ 7900 2500
+Wire Wire Line
+	8300 1750 7900 1750
+Wire Wire Line
+	7350 2200 7350 2400
+Wire Wire Line
+	7350 2400 7750 2400
+Wire Wire Line
+	7750 2400 7750 1400
+Wire Wire Line
+	7750 1400 8000 1400
+Text Notes 8250 1300 0    60   ~ 0
+contrast\n
+Text Notes 8200 1050 0    60   ~ 0
+GND\n
 $EndSCHEMATC
